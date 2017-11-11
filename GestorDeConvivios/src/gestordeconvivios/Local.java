@@ -15,7 +15,7 @@ public abstract class Local {
     private int inscritos;
     
     /**
-     * Cria uma nova instancia de Local
+     * Cria uma nova instancia de Local.
      * 
      * @param lat float que representa a latitude do local
      * @param lng float que representa a longitude do local
@@ -27,12 +27,13 @@ public abstract class Local {
     }
     
     /**
-     * Metodo para adicionar uma nova inscricao ao local
+     * Metodo para adicionar uma nova inscricao ao local.
      */
-    protected abstract void addInscrito();
+    public abstract boolean addInscrito();
 
     /**
-     * Retorna a latitude do local
+     * Retorna a latitude do local.
+     * 
      * @return float
      */
     public float getLat() {
@@ -40,15 +41,26 @@ public abstract class Local {
     }
 
     /**
-     * Retorna a longitude do local
+     * Retorna a longitude do local.
+     * 
      * @return float
      */
     public float getLng() {
         return lng;
     }
+    
+    /**
+     * Atribui um novo valor a variavel inscritos.
+     * 
+     * @param inscritos int
+     */
+    public void setInscritos(int inscritos) {
+        this.inscritos = inscritos;
+    }
 
     /**
-     * Retorna o numero de inscricoes a um local
+     * Retorna o numero de inscricoes a um local.
+     * 
      * @return int
      */
     public int getInscritos() {
