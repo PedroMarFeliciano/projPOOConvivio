@@ -5,6 +5,8 @@
  */
 package gestordeconvivios;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Pedro Feliciano
@@ -28,10 +30,11 @@ public class Jardim extends Parque {
     /**
      * Adiciona um novo inscrito ao Jardim.
      * 
+     * @param inscricoes - ArrayList<Inscricao>
      * @return true, sempre.
      */
     @Override
-    public boolean addInscrito() {
+    public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
         setInscritos(getInscritos() + 1);
         return true;
     }

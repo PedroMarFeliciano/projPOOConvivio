@@ -5,10 +5,8 @@
  */
 package gestordeconvivios;
 
-/**
- *
- * @author Pedro Feliciano
- */
+import java.util.ArrayList;
+
 public abstract class Local {
     
     private float lat, lng;
@@ -27,9 +25,13 @@ public abstract class Local {
     }
     
     /**
-     * Metodo para adicionar uma nova inscricao ao local.
+     * Metodo para adicionar uma nova inscricao ao local. Recebe um ArrayList
+     * com todas as inscricoes feitas nesse local.
+     * 
+     * @param inscricoes - ArrayList<Inscricao>
+     * @return 
      */
-    public abstract boolean addInscrito();
+    public abstract boolean addInscrito(ArrayList<Inscricao> inscricoes);
 
     /**
      * Retorna a latitude do local.

@@ -33,7 +33,7 @@ public class AreaDesportiva extends Parque {
      * @return true, sempre
      */
     @Override
-    public boolean addInscrito() {
+    public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
         setInscritos(getInscritos() + 1);
         return true;
     }
@@ -41,6 +41,7 @@ public class AreaDesportiva extends Parque {
     /**
      *  Adiciona uma nova modalidade a area desportiva.
      * 
+     * @param inscricoes - ArrayList<Inscricao>
      * @param nomeModalidade nome da modalide que pode ser praticada nesse local
      */
     public void addModalidade(String nomeModalidade) {

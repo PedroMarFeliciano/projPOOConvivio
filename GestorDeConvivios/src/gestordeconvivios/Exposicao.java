@@ -5,6 +5,8 @@
  */
 package gestordeconvivios;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Pedro Feliciano
@@ -34,10 +36,12 @@ public class Exposicao extends Local {
 
     /**
      * Adiciona um novo inscrito ao local.
+     * 
+     * @param inscricoes - ArrayList<Inscricao>
      * @return true, sempre.
      */
     @Override
-    public boolean addInscrito() {
+    public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
         setInscritos(getInscritos() + 1);
         
         if (eEstudante()) quantidadeEstudantes++; 
