@@ -60,7 +60,8 @@ public class Exposicao extends Local {
      * 
      * @return float
      */
-    public float estimaReceitaExposicao() {
+    @Override
+    public float estimaReceita() {
         return (float) ((getInscritos() - quantidadeEstudantes) * 
                 custoIngresso + quantidadeEstudantes * 0.9 * custoIngresso);
     }

@@ -40,6 +40,16 @@ public class Jardim extends Parque {
     }
     
     /**
+     * Retorna a receita esperada do Jardim.
+     * 
+     * @return float
+     */
+    @Override
+    public float estimaReceita() {
+        return 0;
+    }
+    
+    /**
      * Retorna o valor da area em metros quadrados do Jardim.
      * 
      * @return float

@@ -59,7 +59,8 @@ public class Bar extends Local {
      * 
      * @return float
      */
-    protected float estimaReceitaBar() {
+    @Override
+    public float estimaReceita() {
         return (getInscritos() * consumoMinimo);
     }
     
@@ -74,7 +75,7 @@ public class Bar extends Local {
         Inscricao ultimoNaoBoemio = null;
         
         // laço para percorrer todos os valores de inscritos e devolver o indice
-        // do ultimo inscrito que nao seja bohemio
+        // do ultimo inscrito que nao seja boemio
         for (Inscricao inscrito: inscricoes) {
             if (inscrito.getLocal().equals(this) &&
                     (inscrito.getInscrito().getPerfil().equalsIgnoreCase("boemio")

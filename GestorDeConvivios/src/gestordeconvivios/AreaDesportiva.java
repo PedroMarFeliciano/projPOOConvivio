@@ -39,6 +39,16 @@ public class AreaDesportiva extends Parque {
     }
     
     /**
+     * Retorna a receita esperada do Jardim.
+     * 
+     * @return float
+     */
+    @Override
+    public float estimaReceita() {
+        return 0;
+    }
+    
+    /**
      *  Adiciona uma nova modalidade a area desportiva.
      * 
      * @param inscricoes - ArrayList<Inscricao>

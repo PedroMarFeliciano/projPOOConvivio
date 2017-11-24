@@ -32,6 +32,13 @@ public abstract class Local {
      * @return 
      */
     public abstract boolean addInscrito(ArrayList<Inscricao> inscricoes);
+    
+    /**
+     * Estima a receita do estabelecimento em questao
+     * 
+     * @return float 
+     */
+    public abstract float estimaReceita();
 
     /**
      * Retorna a latitude do local.
