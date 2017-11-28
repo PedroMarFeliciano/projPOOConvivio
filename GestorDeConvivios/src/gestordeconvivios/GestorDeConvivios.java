@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 
-//Teste de commits e merge!!
-
 package gestordeconvivios;
 
 import java.io.BufferedReader;
@@ -20,6 +18,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -456,7 +456,12 @@ public class GestorDeConvivios {
     }
     
     public void serializaLocais() {
-        
+        Collections.sort(locaisCoimbra, new Comparator<Local>() {
+            @Override
+            public int compare(Local o1, Local o2) {
+                return o1.getInscritos() - o2.getInscritos();
+            }
+        });
     }
     
     /**
