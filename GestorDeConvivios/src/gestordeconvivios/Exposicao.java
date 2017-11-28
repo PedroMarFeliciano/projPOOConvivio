@@ -25,9 +25,9 @@ public class Exposicao extends Local {
      * @param custoIngresso valor que sera cobrado para entrar no local
      * @param formaArtistica forma de arte que sera apresentada
      */
-    public Exposicao(float lat, float lng, float custoIngresso, 
+    public Exposicao(String nome, float lat, float lng, float custoIngresso, 
             String formaArtistica) {
-        super(lat, lng);
+        super(nome, lat, lng);
         this.custoIngresso = custoIngresso;
         this.formaArtistica = formaArtistica;
         

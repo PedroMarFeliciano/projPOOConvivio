@@ -17,13 +17,13 @@ public class Jardim extends Parque {
     
     /**
      * Cria uma nova instancia de Jardim.
-     * 
+     * @param nome String que representa o nome do local
      * @param lat float que representa a latitude do local
      * @param lng float que representa a longitude do local
      * @param area tamanho do Jardim em metros quadrados
      */
-    public Jardim(float lat, float lng, float area) {
-        super(lat, lng);
+    public Jardim(String nome, float lat, float lng, float area) {
+        super(nome, lat, lng);
         this.area = area;
     }
 
