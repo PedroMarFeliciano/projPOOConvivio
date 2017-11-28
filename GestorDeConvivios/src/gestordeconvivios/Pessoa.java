@@ -72,6 +72,15 @@ public class Pessoa implements Serializable{
     }
     
     /**
+     * Retorna a palavra chave do usuário.
+     * 
+     * @return String
+     */
+    public String getPalavraChave() {
+        return palavraChave;
+    }
+    
+    /**
      *
      * @param nome altera o nome da pessoa
      */
