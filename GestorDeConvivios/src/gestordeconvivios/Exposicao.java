@@ -51,6 +51,8 @@ public class Exposicao extends Local {
     
     // TODO implementar metodo eEstudante()
     public boolean eEstudante() {
+        
+        
         return false;
     }
     
