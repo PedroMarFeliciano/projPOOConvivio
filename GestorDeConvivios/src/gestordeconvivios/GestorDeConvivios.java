@@ -203,7 +203,8 @@ public class GestorDeConvivios {
      */
     private void printFichObjPessoas() throws IOException {
 
-        ObjectInputStream is = new ObjectInputStream(new FileInputStream(new File("PessoasObj")));
+        ObjectInputStream is = new ObjectInputStream(new FileInputStream(
+                new File("PessoasObj")));
 
         try {
             ArrayList<Pessoa> lP;
@@ -452,6 +453,10 @@ public class GestorDeConvivios {
             System.out.println("Erro na leitura.\nErro: " + ex);
         }
 
+    }
+    
+    public void serializaLocais() {
+        
     }
     
     /**
