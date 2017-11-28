@@ -17,8 +17,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -59,8 +57,8 @@ public class GestorDeConvivios {
            try {
                criaFichObjPessoas();
            } catch (IOException ex) {
-               System.out.println("Erro ao executar a funcao que cria ficheiro "
-                       + "objecto.");
+               System.out.println("Erro ao executar a funcao que cria ficheiro"
+                       + " objecto.");
            }
            try {
                printFichObjPessoas();
@@ -78,30 +76,44 @@ public class GestorDeConvivios {
     private void criaFichTxtPessoas() {
         
         try{
-            PrintWriter pw = new PrintWriter(new FileWriter(new File("PessoasTxt.txt")));
+            PrintWriter pw = new PrintWriter(new FileWriter(
+                    new File("PessoasTxt.txt")));
             
             //Professores
-            pw.println("prof,Paulo Oliveira,poupadinho,DEI,po@dei.uc.pt,qwerty,Auxiliar");
-            pw.println("prof,Bacano,boemio,DEI,bacano@dei.uc.pt,asdfg,Associado");
-            pw.println("prof,JMSR,cultural,DEM,jmsr@dem.uc.pt,1234,Catedratico");
-            pw.println("prof,Manuel Silva,desportivo,DEI,ms@dei.uc.pt,a1b2c3,Catedratico");
+            pw.println("prof,Paulo Oliveira,poupadinho,DEI,po@dei.uc.pt,"
+                    + "qwerty,Auxiliar");
+            pw.println("prof,Bacano,boemio,DEI,bacano@dei.uc.pt,"
+                    + "asdfg,Associado");
+            pw.println("prof,JMSR,cultural,DEM,jmsr@dem.uc.pt,1234,"
+                    + "Catedratico");
+            pw.println("prof,Manuel Silva,desportivo,DEI,ms@dei.uc.pt,"
+                    + "a1b2c3,Catedratico");
             
             //Funcionários
-            pw.println("func,Anabela Couto,boemio,DEC,ac@dec.uc.pt,aeiou,Temp integral");
-            pw.println("func,Jose Maria,cultural,DEI,jm@dei.uc.pt,SLBGlorioso,Tempo integral");
-            pw.println("func,Mafalda Pereira,desportivo,DEI,mp@dei.uc.pt,QWE$%&,Tempo parcial");
-            pw.println("func,Carlos Afonso,boemio,DEI,ca@dei.uc.pt,tytyty,Tempo parcial");
+            pw.println("func,Anabela Couto,boemio,DEC,ac@dec.uc.pt,aeiou,"
+                    + "Temp integral");
+            pw.println("func,Jose Maria,cultural,DEI,jm@dei.uc.pt,SLBGlorioso,"
+                    + "Tempo integral");
+            pw.println("func,Mafalda Pereira,desportivo,DEI,mp@dei.uc.pt,"
+                    + "QWE$%&,Tempo parcial");
+            pw.println("func,Carlos Afonso,boemio,DEI,ca@dei.uc.pt,tytyty,"
+                    + "Tempo parcial");
             
             //Alunos
-            pw.println("al,Anacleto Martins,boemio,DEI,am@dei.uc.pt,tatetitotu,Lic. Engenharia Informatica");
-            pw.println("al,Maria Costa,poupadinho,DEI,mc@dei.uc.pt,deec1234,Lic. Engenharia Informatica");
-            pw.println("al,Samuel S.,cultural,FL,ss@fl.uc.pt,mmnnbb,Lic. Letras");
-            pw.println("al,Duarte Bom,boemio,DEI,db@dei.uc.pt,tintoecerveja,Lic. Design Multimedia");
+            pw.println("al,Anacleto Martins,boemio,DEI,am@dei.uc.pt,tatetitotu,"
+                    + "Lic. Engenharia Informatica");
+            pw.println("al,Maria Costa,poupadinho,DEI,mc@dei.uc.pt,deec1234,"
+                    + "Lic. Engenharia Informatica");
+            pw.println("al,Samuel S.,cultural,FL,ss@fl.uc.pt,"
+                    + "mmnnbb,Lic. Letras");
+            pw.println("al,Duarte Bom,boemio,DEI,db@dei.uc.pt,"
+                    + "tintoecerveja,Lic. Design Multimedia");
 
             pw.close();
             
         }catch(IOException e){
-            System.out.println("Ocorreu uma excepção ao criar o ficheiro PessoasTxt");
+            System.out.println("Ocorreu uma excepção ao criar o ficheiro "
+                    + "PessoasTxt");
         }
         
         
@@ -112,7 +124,8 @@ public class GestorDeConvivios {
     private void leFichTxtPessoas(){
        
         try {
-            BufferedReader fr = new BufferedReader(new FileReader(new File("PessoasTxt.txt")));
+            BufferedReader fr = new BufferedReader(new FileReader(
+                    new File("PessoasTxt.txt")));
             try {
                 String linha;
                 
@@ -123,11 +136,11 @@ public class GestorDeConvivios {
                     
                 }
             } catch (IOException ex) {
-               System.out.println("Linha em branco");
+               System.out.println("Linha em branco.\nErro: " + ex);
             }
             
         } catch (FileNotFoundException ex) {
-            System.out.println("O ficheiro PessoasTxt não existe");
+            System.out.println("O ficheiro PessoasTxt não existe.\n" + ex);
         }
         
     }
@@ -168,14 +181,16 @@ public class GestorDeConvivios {
         
         
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File("PessoasObj")));
+            ObjectOutputStream os = new ObjectOutputStream(
+                    new FileOutputStream(new File("PessoasObj")));
             System.out.println("Criacao do fich PessoaObj");
             os.writeObject(pessoas);
             
             os.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("Erro ao escrever no ficheiro PessoasObj");
+            System.out.println("Erro ao escrever no ficheiro PessoasObj\n"
+                    + "Erro:" + ex);
         }
     }
     
@@ -224,18 +239,8 @@ public class GestorDeConvivios {
         leFichTxtLocais();
         printLocais();
 
-        try {
-            criaFichObjLocais();
-        } catch (IOException ex) {
-            System.out.println("Erro ao executar a funcao que cria ficheiro "
-                    + "objecto associado aos locais.");
-        }
-        try {
-            printFichObjLocais();
-        } catch (IOException ex) {
-            System.out.println("Erro ao executar a funcao que faz print do "
-                    + "ficheiro objecto associado aos locais.");
-        }
+        criaFichObjLocais();
+        printFichObjLocais();
     }
            
         
@@ -246,7 +251,8 @@ public class GestorDeConvivios {
     private void criaFichTxtLocais() {
         
         try{
-            PrintWriter pw = new PrintWriter(new FileWriter(new File("LocaisTxt.txt")));
+            PrintWriter pw = new PrintWriter(new FileWriter(
+                    new File("LocaisTxt.txt")));
             
             //Jardins
             pw.println("jar,Botanico,40.212,12.345,350.335");
@@ -272,7 +278,8 @@ public class GestorDeConvivios {
             
             
         }catch(IOException e){
-            System.out.println("Ocorreu uma excepção ao criar o ficheiro de texto");
+            System.out.println("Ocorreu uma excepção ao criar o ficheiro de"
+                    + " texto");
         }
         
         
@@ -283,7 +290,8 @@ public class GestorDeConvivios {
     private void leFichTxtLocais(){
        
         try {
-            BufferedReader fr = new BufferedReader(new FileReader(new File("LocaisTxt.txt")));
+            BufferedReader fr = new BufferedReader(new FileReader(
+                    new File("LocaisTxt.txt")));
             try {
                 String linha;
                 
@@ -346,7 +354,7 @@ public class GestorDeConvivios {
     }
     
     /**
-     * Cria uma instancia do objecto do tipo AreaDesportiva e adiciona-o àlist
+     * Cria uma instancia do objecto do tipo AreaDesportiva e adiciona-o à lista
      * de locais.
      * @param temp vector de strings com a informação acerca do local
      * temp[1]; nome / temp[2]: latitude / temp[3]: longitude
@@ -362,7 +370,8 @@ public class GestorDeConvivios {
     }
     
     /**
-     * Cria uma instancia do objecto do tipo Exposicao e adiciona-o àlista de locais.
+     * Cria uma instancia do objecto do tipo Exposicao e adiciona-o àlista de
+     * locais.
      * @param temp vector de strings com a informação acerca do local
      * temp[1]: nome / temp[2]: latitude / temp[3]: longitude
      * temp[4]: custo do ingresso / temp[5]: forma artística
@@ -392,18 +401,22 @@ public class GestorDeConvivios {
      * Cria o ficheiro objecto carregando neste ficheiro a ArrayList de locais
      * @throws IOException 
      */
-    private void criaFichObjLocais() throws IOException {
+    private void criaFichObjLocais() {
         
         
         try {
-            ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File("LocaisObj")));
+            ObjectOutputStream os = new ObjectOutputStream(
+                    new FileOutputStream(new File("LocaisObj")));
             System.out.println("Criacao do ficheiro objecto de Locais");
             os.writeObject(locaisCoimbra);
             
             os.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("Erro ao escrever no ficheiro LocaisObj");
+            System.out.println("Erro ao escrever no ficheiro LocaisObj.\n"
+                    + "Erro: " + ex);
+        } catch (IOException ex) {
+            System.out.println("Erro na leitura.\nErro: " + ex);
         }
     }
     
@@ -411,12 +424,10 @@ public class GestorDeConvivios {
      * Le o ficheiro LocaisObj e imprime a informação nele contida
      * @throws IOException 
      */
-    private void printFichObjLocais() throws IOException {
-
-        ObjectInputStream is = new ObjectInputStream(new FileInputStream(new File("LocaisObj")));
-        
-        
+    private void printFichObjLocais() {
         try {
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream(
+                    new File("LocaisObj")));
             
             ArrayList<Local> lL;
             System.out.println("Leitura do ficheiro LocaisObj\n");
@@ -431,6 +442,11 @@ public class GestorDeConvivios {
 
         } catch (ClassNotFoundException ex) {
             System.out.println("Nao foi possivel ler o ficheiro LocaisObj");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Nao foi possivel encontrar o arquivo "
+                    + "LocaisObj.\nErro: " + ex);
+        } catch (IOException ex) {
+            System.out.println("Erro na leitura.\nErro: " + ex);
         }
 
     }
