@@ -1,0 +1,12 @@
+jar,Botanico,40.212,12.345,350.335
+jar,Sereia,30.898,8.6758,289.211
+jar,Penedo da Saudade,15.654,37.019,500.599
+desp,Pavilhao Universitario,33.777,45.345,Raguebi
+desp,Pavilhao Mario Mexia,22.435,12.038,Basquetebol
+desp,Campo da Sereia,27.414,5.321,Futebol
+exp,Galeria Casa da Cultura,28.331,4.902,3.0,Pintura
+exp,Museu Machado Castro,24.111,7.408,2.5,Escultura
+exp,TAGV,15.131,6.056,2.75,Fotografia
+bar,Quebra-Costas,40.212,12.345,45,5
+bar,Cantinas Amarelas,33.431,5.413,250,15
+bar,Jardins da AAC,20.111,7,715,400,10

@@ -5,20 +5,23 @@
  */
 package gestordeconvivios;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Local {
+public abstract class Local implements Serializable{
     
+    private String nome;
     private float lat, lng;
     private int inscritos;
     
     /**
      * Cria uma nova instancia de Local.
-     * 
+     * @param nome String que representa o nome do local
      * @param lat float que representa a latitude do local
      * @param lng float que representa a longitude do local
      */
-    public Local(float lat, float lng) {
+    public Local(String nome, float lat, float lng) {
+        this.nome = nome;
         this.lat = lat;
         this.lng = lng;
         inscritos = 0;
@@ -45,6 +48,12 @@ public abstract class Local {
      * 
      * @return float
      */
+    
+    
+    public String getNome() {
+        return nome;
+    }
+
     public float getLat() {
         return lat;
     }

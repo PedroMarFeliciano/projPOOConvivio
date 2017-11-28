@@ -5,11 +5,13 @@
  */
 package gestordeconvivios;
 
+import java.io.Serializable;
+
 /**
  *
  * @author marcomiranda
  */
-public class Pessoa {
+public class Pessoa implements Serializable{
 
     private String nome;
     private String perfil;
@@ -60,7 +62,15 @@ public class Pessoa {
     public String getDepartamento() {
         return departamento;
     }
-
+    
+    /**
+     * 
+     * @return devolve o mail da pessoa
+     */
+    public String getMail() {
+        return mail;
+    }
+    
     /**
      *
      * @param nome altera o nome da pessoa
@@ -100,6 +110,10 @@ public class Pessoa {
      */
     public void setPalavraChave(String palavraChave) {
         this.palavraChave = palavraChave;
+    }
+    
+    public String getCurso() {
+        return "N.A.";
     }
 
 }

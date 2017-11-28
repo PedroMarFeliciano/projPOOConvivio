@@ -13,12 +13,12 @@ public abstract class Parque extends Local {
     
     /**
      * Cria uma nova instancia de Parque.
-     * 
+     * @param nome String que representa o nome do local
      * @param lat float que representa a latitude do local
      * @param lng float que representa a longitude do local
      */
-    public Parque(float lat, float lng) {
-        super(lat, lng);
+    public Parque(String nome, float lat, float lng) {
+        super(nome, lat, lng);
     }
     
 }

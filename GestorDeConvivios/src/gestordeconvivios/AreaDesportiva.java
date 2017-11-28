@@ -17,12 +17,12 @@ public class AreaDesportiva extends Parque {
     
     /**
      * Cria uma nova instancia de Local.
-     * 
+     * @param nome String que representa o nome do local
      * @param lat float que representa a latitude do local
      * @param lng float que representa a longitude do local
      */
-    public AreaDesportiva(float lat, float lng) {
-        super(lat, lng);
+    public AreaDesportiva(String nome, float lat, float lng) {
+        super(nome, lat, lng);
         
         modalidades = new ArrayList<>();
     }
