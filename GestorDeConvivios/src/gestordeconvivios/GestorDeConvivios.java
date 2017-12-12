@@ -27,9 +27,9 @@ import java.util.Comparator;
  */
 public class GestorDeConvivios {
 
-    ArrayList<Pessoa> pessoas;
-    ArrayList<Local> locaisCoimbra;
-    ArrayList<Convivio> convivios;
+    private ArrayList<Pessoa> pessoas;
+    private ArrayList<Local> locaisCoimbra;
+    private ArrayList<Convivio> convivios;
     
     public static void main(String[] args) {
         new GestorDeConvivios();
@@ -45,6 +45,9 @@ public class GestorDeConvivios {
         
         fichPessoas();
         fichLocais();
+        
+        addConvivio(locaisCoimbra, "Primeiro Convivio");
+        MenuInicial mi = new MenuInicial(this);
         
     }
     
@@ -498,8 +501,21 @@ public class GestorDeConvivios {
      * 
      * @param titulo 
      */
-    public void addConvivio(String titulo) {
-        convivios.add(new Convivio(titulo));
+    public void addConvivio(ArrayList<Local> locais, String titulo) {
+        convivios.add(new Convivio(locais, titulo));
     }
 
+    public ArrayList<Pessoa> getPessoas() {
+        return pessoas;
+    }
+
+    public ArrayList<Local> getLocaisCoimbra() {
+        return locaisCoimbra;
+    }
+
+    public ArrayList<Convivio> getConvivios() {
+        return convivios;
+    }
+
+    
 }
