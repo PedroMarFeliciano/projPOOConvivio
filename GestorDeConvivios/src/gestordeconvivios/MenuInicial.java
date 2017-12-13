@@ -38,6 +38,7 @@ public class MenuInicial extends javax.swing.JFrame {
         panelPrincipal = new javax.swing.JPanel();
         btnNovaInscricao = new javax.swing.JButton();
         btnListaInscricoes = new javax.swing.JButton();
+        btnListaInscricoes1 = new javax.swing.JButton();
         lblNomeConvivio = new javax.swing.JLabel();
         labelNumPessoasLocais = new javax.swing.JLabel();
 
@@ -57,6 +58,13 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
+        btnListaInscricoes1.setText("Lista Locais");
+        btnListaInscricoes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaInscricoes1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
@@ -64,7 +72,8 @@ public class MenuInicial extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnNovaInscricao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnListaInscricoes, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                    .addComponent(btnListaInscricoes, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                    .addComponent(btnListaInscricoes1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelPrincipalLayout.setVerticalGroup(
@@ -74,7 +83,9 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addComponent(btnNovaInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnListaInscricoes, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnListaInscricoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         lblNomeConvivio.setText("jLabel1");
@@ -125,12 +136,19 @@ public class MenuInicial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnListaInscricoesActionPerformed
 
+    private void btnListaInscricoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaInscricoes1ActionPerformed
+        ListaLocais ll = new ListaLocais(this, gdc);
+        this.setVisible(false);
+        ll.setVisible(true);
+    }//GEN-LAST:event_btnListaInscricoes1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListaInscricoes;
+    private javax.swing.JButton btnListaInscricoes1;
     private javax.swing.JButton btnNovaInscricao;
     private javax.swing.JLabel labelNumPessoasLocais;
     private javax.swing.JLabel lblNomeConvivio;

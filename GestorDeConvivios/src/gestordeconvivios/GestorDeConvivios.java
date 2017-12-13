@@ -462,7 +462,7 @@ public class GestorDeConvivios {
         Collections.sort(locaisCoimbra, new Comparator<Local>() {
             @Override
             public int compare(Local o1, Local o2) {
-                return o1.getInscritos() - o2.getInscritos();
+                return o2.getInscritos() - o1.getInscritos();
             }
         });
     }
