@@ -40,6 +40,20 @@ public class Convivio {
      */
     public void adInscricao(Local local, Pessoa pessoa) {
         boolean cadastrado = false;
+        String dep;
+        
+        dep = pessoa.getDepartamento();
+        
+       if(dep.compareTo("DEI")!= 0){
+           System.out.println("Não é possível fazer a inscrição da pessoa: " +
+                   pessoa.getNome() + " / " + dep + 
+                   ". Inscrição reservada à comunidade do DEI.");
+           return;
+       }
+       inscricoes.add(new Inscricao(local, pessoa));
+       System.out.println("Inscrição realizada com sucesso: " + pessoa);
+           
+        
         
         for (Local localCadastrado: locaisCadastrados) {
             if (localCadastrado.equals(local)) {
@@ -52,10 +66,9 @@ public class Convivio {
             System.out.println("Local não cadastrado.");
             return;
         }
-        
         if (local.addInscrito(inscricoes)) {
             inscricoes.add(new Inscricao(local, pessoa));
-            System.out.println("Inscrição realizada com sucesso.");
+            System.out.println("Inscrição realizada com sucesso: " + pessoa);
         }
         else {
             System.out.println("Erro ao realizar a inscricao.");
@@ -77,6 +90,7 @@ public class Convivio {
      * @param bar
      * @return ArrayList<Pessoa> com todos os inscritos no Bar
      */
+    
     public ArrayList<Pessoa> mostraGuestList(Bar bar) {
         ArrayList<Pessoa> pessoasNaGuestList = new ArrayList();
         

@@ -11,13 +11,14 @@ import java.io.Serializable;
  *
  * @author marcomiranda
  */
-public class Pessoa implements Serializable{
+public abstract class Pessoa implements Serializable{
 
     private String nome;
     private String perfil;
     private String departamento;
     private String mail;
     private String palavraChave;
+    private int numLocais;
 
     /**
      * Construtor que cria uma nova pessoa
@@ -37,6 +38,7 @@ public class Pessoa implements Serializable{
         this.departamento = departamento;
         this.mail = mail;
         this.palavraChave = palavraChave;
+        this.numLocais = 0;
     }
 
     /**
@@ -69,6 +71,15 @@ public class Pessoa implements Serializable{
      */
     public String getMail() {
         return mail;
+    }
+    
+    
+     /** 
+     * @return devolve o curso a que pertence a pessoa, caso seja um aluno e,
+     * uma string vazia caso seja professor ou funcionário
+     */
+     public String getCurso() {
+        return "";
     }
     
     /**
@@ -112,8 +123,20 @@ public class Pessoa implements Serializable{
         this.palavraChave = palavraChave;
     }
     
-    public String getCurso() {
-        return "N.A.";
-    }
+    public abstract String getTipoPessoa();
 
+    public boolean contaLocal(int numLocais) {
+        
+        if (this.numLocais < 5){
+            this.numLocais++;
+            return true;
+        }
+        else
+            return false;
+        
+    }
+    
+    
+         
+    
 }

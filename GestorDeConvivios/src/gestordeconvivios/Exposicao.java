@@ -44,17 +44,24 @@ public class Exposicao extends Local {
     public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
         setInscritos(getInscritos() + 1);
         
-        if (eEstudante()) quantidadeEstudantes++; 
+        //if (eEstudante(inscricoes)) quantidadeEstudantes++; 
         
         return true;
     }
     
-    // TODO implementar metodo eEstudante()
-    public boolean eEstudante() {
+    /*
+    public boolean eEstudante(ArrayList<Inscricao> inscr) {
         
-        
-        return false;
-    }
+       String tipo[];
+       
+       for (Insricao inscricao: inscr)
+               
+               
+       if (.getTipoPessoa().compareTo("Aluno") == 0)
+           return true;
+       
+       return false;
+    }*/
     
     /**
      * Calcula e retorna um valor estimado de receita para o local, contando com 

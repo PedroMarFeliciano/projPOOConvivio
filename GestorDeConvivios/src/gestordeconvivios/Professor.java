@@ -42,5 +42,9 @@ public class Professor extends Pessoa {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
+    
+ @Override
+    public String getTipoPessoa() {
+        return "Professor";
+    }
 }

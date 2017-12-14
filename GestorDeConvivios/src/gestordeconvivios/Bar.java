@@ -74,8 +74,8 @@ public class Bar extends Local {
     protected Inscricao procuraNaoBoemio(ArrayList<Inscricao> inscricoes) {
         Inscricao ultimoNaoBoemio = null;
         
-        // laço para percorrer todos os valores de inscritos e devolver o indice
-        // do ultimo inscrito que nao seja boemio
+        /* laço para percorrer todos os valores de inscritos e devolver o indice
+         do ultimo inscrito que nao seja boemio
         for (Inscricao inscrito: inscricoes) {
             if (inscrito.getLocal().equals(this) &&
                     (inscrito.getInscrito().getPerfil().equalsIgnoreCase("boemio")
@@ -83,7 +83,7 @@ public class Bar extends Local {
                 ultimoNaoBoemio = inscrito;
             }
         }
-        
+        */
         return ultimoNaoBoemio;
     }
 

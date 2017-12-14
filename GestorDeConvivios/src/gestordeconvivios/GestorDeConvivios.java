@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-//Teste de commits e merge!!
 
 package gestordeconvivios;
 
@@ -20,16 +19,22 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Pedro Feliciano
  */
-public class GestorDeConvivios {
+    public class GestorDeConvivios {
 
     ArrayList<Pessoa> pessoas;
     ArrayList<Local> locaisCoimbra;
     ArrayList<Convivio> convivios;
+    
+    int x;
+    String str = new String();
     
     public static void main(String[] args) {
         new GestorDeConvivios();
@@ -38,13 +43,29 @@ public class GestorDeConvivios {
     /**
      * Cria uma nova instancia de GestorDeConvivios
      */
-    public GestorDeConvivios() {
+    private GestorDeConvivios() {
         pessoas = new ArrayList<>();
         locaisCoimbra = new ArrayList<>();
         convivios = new ArrayList<>();
         
+        
         fichPessoas();
         fichLocais();
+        System.out.println();
+        
+        //métodos para teste
+        Convivio conv = new Convivio("Festança!!");
+        
+        printFichObjLocais();
+        printFichObjPessoas();
+ 
+        pedeDadosPessoa();
+        
+        System.out.println("Locais disponíveis para visitar:");
+        printFichObjLocais();
+        
+        printPessoas();
+
         
     }
     
@@ -55,7 +76,7 @@ public class GestorDeConvivios {
                 
         criaFichTxtPessoas();
            leFichTxtPessoas();
-           printPessoas();
+           //printPessoas();
            
            try {
                criaFichObjPessoas();
@@ -63,12 +84,12 @@ public class GestorDeConvivios {
                System.out.println("Erro ao executar a funcao que cria ficheiro"
                        + " objecto.");
            }
-           try {
+           /*try {
                printFichObjPessoas();
            } catch (IOException ex) {
                System.out.println("Erro ao executar a funcao que faz print do "
                        + "ficheiro objecto.");
-           }
+           }*/
     }
            
         
@@ -130,12 +151,14 @@ public class GestorDeConvivios {
             BufferedReader fr = new BufferedReader(new FileReader(
                     new File("PessoasTxt.txt")));
             try {
+                int i = 1;
                 String linha;
                 
                 while ((linha = fr.readLine()) != null){
                     String temp[] = linha.split(",");
                     
-                    addPessoaLista(temp);
+                    addPessoaLista(temp, i);
+                    i++;
                     
                 }
             } catch (IOException ex) {
@@ -156,23 +179,31 @@ public class GestorDeConvivios {
      * temp[4]: mail (para login) / temp[5]: palavra-chave (para login)
      * temp[6]: tipo de prof. ou tipo de funcionário ou curso do aluno
      */
-    private void addPessoaLista(String temp[]){
+    private void addPessoaLista(String temp[], int i){
         
-        if (temp[0].compareTo("prof") == 0) {
-            Professor p = new Professor(temp[1], temp[2], temp[3],
-                    temp[4], temp[5], temp[6]);
-            pessoas.add(p);
-
-        } else if (temp[0].compareTo("func") == 0) {
-            Funcionario f = new Funcionario(temp[1], temp[2], temp[3],
-                    temp[4], temp[5], temp[6]);
-            pessoas.add(f);
+        switch (temp[0]){
             
-        } else if (temp[0].compareTo("al") == 0) {
-            Aluno a = new Aluno(temp[1], temp[2], temp[3],
+            case "prof":
+                Professor p = new Professor(temp[1], temp[2], temp[3],
                     temp[4], temp[5], temp[6]);
-            pessoas.add(a);
+                addPessoa(p);
+                break;
+                
+            case "func":
+                Funcionario f = new Funcionario(temp[1], temp[2], temp[3],
+                    temp[4], temp[5], temp[6]);
+                addPessoa(f);
+                break;
+                
+            case "al":
+                Aluno a = new Aluno(temp[1], temp[2], temp[3],
+                    temp[4], temp[5], temp[6]);
+                addPessoa(a);
+                break;
+            default: System.out.println("Tipo de pessoa mal definido na linha "
+                    + i);            
         }
+          
         
     }
     /**
@@ -186,7 +217,6 @@ public class GestorDeConvivios {
         try {
             ObjectOutputStream os = new ObjectOutputStream(
                     new FileOutputStream(new File("PessoasObj")));
-            System.out.println("Criacao do fich PessoaObj");
             os.writeObject(pessoas);
             
             os.close();
@@ -201,16 +231,17 @@ public class GestorDeConvivios {
      * Le e imprime a informação contida no ficheiro objecto PessoasObj
      * @throws IOException 
      */
-    private void printFichObjPessoas() throws IOException {
-
-        ObjectInputStream is = new ObjectInputStream(new FileInputStream(
-                new File("PessoasObj")));
+    private void printFichObjPessoas(){
 
         try {
+            ObjectInputStream is = new ObjectInputStream(new FileInputStream(
+                    new File("PessoasObj")));
+        
             ArrayList<Pessoa> lP;
-            System.out.println("Leitura do ficheiro PessoasObj");
 
             lP = (ArrayList<Pessoa>) is.readObject();
+            
+            System.out.println("\n\t---Print das pessoas a partir do ficheiro objecto---\n");
             for (Pessoa p : lP) {
                 System.out.println(p.getNome());
             }
@@ -219,6 +250,11 @@ public class GestorDeConvivios {
 
         } catch (ClassNotFoundException ex) {
             System.out.println("Nao foi possivel ler o ficheiro PessoasObj");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Nao foi possivel encontrar o arquivo "
+                    + "LocaisObj.\nErro: " + ex);
+        } catch (IOException ex) {
+            System.out.println("Erro na leitura.\nErro: " + ex);
         }
 
     }
@@ -228,9 +264,13 @@ public class GestorDeConvivios {
      */
     private void printPessoas(){
         
+        System.out.println();
+        System.out.println("\nPrint de pessoas a partir da Arraylist:");
+        System.out.println();
+        
         for (Pessoa pessoa : pessoas)
-            System.out.println("Nome: " + pessoa.getNome() + "\t" + "Curso:\t"
-                    + pessoa.getCurso());
+            System.out.println("Nome: " + pessoa.getNome() + "\t" + "Tipo pessoa:\t"
+                    + pessoa.getTipoPessoa());
         
     }
     
@@ -241,10 +281,10 @@ public class GestorDeConvivios {
 
         criaFichTxtLocais();
         leFichTxtLocais();
-        printLocais();
+        //printLocais();
 
         criaFichObjLocais();
-        printFichObjLocais();
+        //printFichObjLocais();
     }
            
         
@@ -297,13 +337,14 @@ public class GestorDeConvivios {
             BufferedReader fr = new BufferedReader(new FileReader(
                     new File("LocaisTxt.txt")));
             try {
+                int i = 1;
                 String linha;
                 
                 while ((linha = fr.readLine()) != null){
                     String temp[] = linha.split(",");
                     
-                    addLocalLista(temp);
-                    
+                    addLocalLista(temp, i);
+                    i++;
                 }
             } catch (IOException ex) {
                System.out.println("Linha em branco");
@@ -325,7 +366,7 @@ public class GestorDeConvivios {
      * / temp[5]: Forma de expressão artística (se exposição) /
      * percentagem para guest-list (se bar) / N.A. para jardim e área desportiva
      */
-    private void addLocalLista(String temp[]){
+    private void addLocalLista(String temp[], int i){
         
         if (temp[0].compareTo("jar") == 0) {
            addJardim(temp);
@@ -339,6 +380,8 @@ public class GestorDeConvivios {
         else if (temp[0].compareTo("bar") == 0) {
             addBar(temp);
         }
+        else
+            System.out.println("Tipo de local mal definido na linha " + i);
         
     }
     
@@ -411,7 +454,7 @@ public class GestorDeConvivios {
         try {
             ObjectOutputStream os = new ObjectOutputStream(
                     new FileOutputStream(new File("LocaisObj")));
-            System.out.println("Criacao do ficheiro objecto de Locais");
+            System.out.println();
             os.writeObject(locaisCoimbra);
             
             os.close();
@@ -434,10 +477,10 @@ public class GestorDeConvivios {
                     new File("LocaisObj")));
             
             ArrayList<Local> lL;
-            System.out.println("Leitura do ficheiro LocaisObj\n");
             
             lL = (ArrayList<Local>) is.readObject();
             
+            System.out.println("\nPrint dos locais a partir do ficheiro LocaisObj\n");
             for (Local l : lL) {
                 System.out.println(l.getNome());
             }
@@ -445,7 +488,7 @@ public class GestorDeConvivios {
             is.close();
 
         } catch (ClassNotFoundException ex) {
-            System.out.println("Nao foi possivel ler o ficheiro LocaisObj");
+            System.out.println("Nao foi possivel ler o ficheiro LocaisObj\n");
         } catch (FileNotFoundException ex) {
             System.out.println("Nao foi possivel encontrar o arquivo "
                     + "LocaisObj.\nErro: " + ex);
@@ -464,19 +507,14 @@ public class GestorDeConvivios {
      */
     private void printLocais(){
         
+        System.out.println("\n\nPrint dos locais a partir da ArrayList do Locais\n");
         for (Local l : locaisCoimbra)
             System.out.println("Nome: " + l.getNome() + "\t" + l.getLat());
-        
+        System.out.println();
     }
     
-    /**
-     * Adiciona uma nova pessoa que pretende participar do convivio
-     * 
-     * @param pessoa - pretendente a participar do convivio
-     */
-    public void addPessoa(Pessoa pessoa) {
-        pessoas.add(pessoa);
-    }
+    
+    //todo remove 
     
     /**
      * Adiciona um local que pretende participar do convivio
@@ -495,6 +533,240 @@ public class GestorDeConvivios {
      */
     public void addConvivio(String titulo) {
         convivios.add(new Convivio(titulo));
+    }
+    
+    /**
+     * Função que pede os dados de uma nova pessoa que pretende inscrever-se no
+     * convívio
+     * dados é uma array de strings. Correspondência entre informação da pessoa
+     * contida no índice e respectivo índice: "nome" em dados[0], "perfil" em
+     * dados[1], "departamento" em dados[2], mail em dados[3], palavraChave em
+     * dados[4]
+     */
+    private void pedeDadosPessoa() {
+        
+        String[] dados = new String[5];
+        Scanner sc = new Scanner(System.in);
+        
+        
+        System.out.println("Introduza o seu nome.");
+        dados[0] = sc.nextLine();
+        
+        System.out.println("Qual o seu perfil?");
+        //função que permite à pessoa escolher o seu perfil
+        dados[1] = perfilPessoa();
+                
+        System.out.println("Qual o seu departamento?");
+        //função que permite à pessoa escolher o departamento a que pertence
+        dados[2] = selDepartamentoPessoa();
+        
+        System.out.println("Introduza o seu mail.");
+        dados[3] = sc.nextLine();
+        
+        System.out.println("Introduza a sua palavra chave.");
+        dados[4] = sc.nextLine();
+      
+        System.out.println("Qual o seu tipo de pessoa?");
+        //função que permite à pessoa escolher a sua função no departamento
+        tipoPessoa(dados);
+        
+    }
+    /**
+     * Função para escolha do perfil a que a pessoa pertence
+     * @return devolve str, uma string com o perfil seleccionado pela pessoa
+     */
+    private String perfilPessoa(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("1. Desportivo");
+        System.out.println("2. Cultural");
+        System.out.println("3. Boémio");
+        System.out.println("4. Poupadinho");
+        
+        x = sc.nextInt();
+        
+        while (x < 1 || x > 4 ){
+            System.out.println("P.f. introduza um número correto.");
+            x = sc.nextInt();
+        }
+        
+        switch (x){
+            
+            case 1:
+                str = "Desportivo";
+                break;
+            case 2:
+                str = "Cultural";
+                break;
+            
+             case 3:
+                str = "Boemio";
+                break;
+                
+             case 4:
+                str = "Poupadinho";
+                break;       
+                
+        }
+      
+        return str;
+        
+    }
+    
+    /**
+     * Função para a pessoa definir o tipo a que pertence
+     * @return devolve str, uma string com o tipo de pessoa seleccionado
+     */
+    
+    private String selDepartamentoPessoa(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        
+        System.out.println("1. DEI");
+        System.out.println("2. Outro");
+        
+        x = sc.nextInt();
+        
+        while (x < 1 || x > 2 ){
+            System.out.println("P.f. introduza um número correto.");
+            x = sc.nextInt();
+        }
+            
+        switch (x){
+            
+            case 1:
+                str = "DEI";
+                break;
+                
+            case 2:
+                System.out.println("P.f. introduza o departamento:");
+                str = sc.nextLine();
+                break;
+        }
+        
+        return str;
+        
+    }
+   
+    /**
+     * 
+     * @param dados 
+     */
+    private void tipoPessoa(String[] dados){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("1. Professor");
+        System.out.println("2. Aluno");
+        System.out.println("3. Funcionario");
+        
+        x = sc.nextInt();
+        
+        while (x < 1 || x > 3 ){
+            System.out.println("P.f. introduza um número correto.");
+            x = sc.nextInt();
+        }
+            
+        switch (x){
+            
+            case 1:
+                System.out.println("Qual o seu grau?");
+                //função que permite ao professor escolher o seu grau
+                str = grauProf();
+                Professor p = new Professor(dados[0], dados[1], dados[2],
+                        dados[3], dados[4], str);
+                addPessoa(p);
+                break;
+            case 2:
+                System.out.println("Qual o seu curso?");
+                str = sc.nextLine();
+                Aluno al = new Aluno(dados[0], dados[1], dados[2],
+                        dados[3], dados[4], str);
+                addPessoa(al);
+                break;
+            
+             case 3:
+                System.out.println("Qual o seu horário?");
+                //função que permite ao funcionario escolher o seu horário
+                str = horarioFunc();
+                Funcionario f = new Funcionario(dados[0], dados[1], dados[2],
+                        dados[3], dados[4], str);
+                addPessoa(f);
+                break;     
+        }
+    
+    }
+    
+    private String grauProf(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("1. Auxiliar");
+        System.out.println("2. Associado");
+        System.out.println("3. Catedrático");
+        
+        x = sc.nextInt();
+        
+        while (x < 1 || x > 3 ){
+            System.out.println("P.f. introduza um número correto.");
+            x = sc.nextInt();
+        }
+            
+        switch (x){
+            
+            case 1:
+                str = "Auxiliar";
+                break;
+                
+            case 2:
+                str = "Associado";
+                break;
+            
+             case 3:
+                str = "Catedrático";
+                break;       
+        }
+    return str;
+    
+    }
+    
+    private String horarioFunc(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("1. Tempo parcial");
+        System.out.println("2. Tempo integral");
+        
+        x = sc.nextInt();
+        
+        while (x < 1 || x > 2 ){
+            System.out.println("P.f. introduza um número correto.");
+            x = sc.nextInt();
+        }
+            
+        switch (x){
+            
+            case 1:
+                str = "Tempo parcial";
+                break;
+                
+            case 2:
+                str = "Tempo integral";
+                break;     
+        }
+    return str;
+    
+    }
+  
+    /**
+     * Adiciona uma nova pessoa que pretende participar do convivio
+     * 
+     * @param pessoa - pretendente a participar do convivio
+     */
+    public void addPessoa(Pessoa pessoa) {
+        pessoas.add(pessoa);
     }
 
 }

@@ -25,9 +25,15 @@ public class Aluno extends Pessoa {
         this.curso = curso;
 
     }
+    
     @Override
     public String getCurso() {
         return curso;
+    }
+    
+    @Override
+    public String getTipoPessoa() {
+        return "Aluno";
     }
 
     /**
