@@ -65,10 +65,11 @@ public class Convivio {
             return;
         }
         if (local.addInscrito(inscricoes)) {
-            pessoa.contaLocais();
+        
             inscricoes.add(new Inscricao(local, pessoa));
             System.out.println("Inscrição realizada com sucesso: " +
-                    pessoa.getNome() + pessoa.getNumLocais());
+                    pessoa.getNome() + ", remanescentes: " + 
+                    (5 - pessoa.getNumLocais()));
         }
         else {
             System.out.println("Erro ao realizar a inscricao.");

@@ -92,5 +92,13 @@ public class Exposicao extends Local {
     public float getCustoIngresso() {
         return custoIngresso;
     }
+
+    @Override
+    public String toString() {
+        return "Tipo................: exposição\n" + 
+               "Forma Artística.....: " + formaArtistica + "\n" +
+               "Custo do ingresso...: " + custoIngresso + "\n" +
+               "Estudantes Inscritos: " + quantidadeEstudantes;
+    }
     
 }

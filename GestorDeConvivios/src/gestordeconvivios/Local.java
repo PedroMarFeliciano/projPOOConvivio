@@ -84,4 +84,8 @@ public abstract class Local implements Serializable{
     public int getInscritos() {
         return inscritos;
     }
+    
+    @Override
+    public abstract String toString();
+    
 }

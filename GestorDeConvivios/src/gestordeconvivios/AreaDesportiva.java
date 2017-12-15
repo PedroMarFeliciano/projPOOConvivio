@@ -80,5 +80,16 @@ public class AreaDesportiva extends Parque {
     public ArrayList<String> getModalidades() {
         return modalidades;
     }
+
+    @Override
+    public String toString() {
+        String str = "Tipo........: área desportiva\n" +
+                      "Modalidades: ";
+        for (String m: modalidades) {
+            str += m + "\n             ";
+        }
+        
+        return str;
+    }
     
 }

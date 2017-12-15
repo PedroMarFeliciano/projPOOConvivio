@@ -115,4 +115,13 @@ public class Bar extends Local {
             return false;
         
     }
+
+    @Override
+    public String toString() {
+        return "Tipo.............: bar\n" +
+               "Lotação..........: " + lotacao + "\n" +
+               "Limite guest list: " + guestLimit + "\n" +
+               "Inscritos........: " + inscritos + "\n" +
+               "Consumo mínimo...: " + consumoMinimo;
+    }
 }

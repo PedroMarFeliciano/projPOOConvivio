@@ -50,8 +50,9 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         comboBoxPessoas = new javax.swing.JComboBox<>();
         comboBoxLocais = new javax.swing.JComboBox<>();
         btnInscrever = new javax.swing.JButton();
-        lblErro = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaInfoLocais = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +70,11 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         });
 
         comboBoxLocais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxLocais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxLocaisActionPerformed(evt);
+            }
+        });
 
         btnInscrever.setText("Inscrever");
         btnInscrever.addActionListener(new java.awt.event.ActionListener() {
@@ -84,29 +90,37 @@ public class AdicionaInscricao extends javax.swing.JFrame {
             }
         });
 
+        txtAreaInfoLocais.setColumns(20);
+        txtAreaInfoLocais.setRows(5);
+        jScrollPane1.setViewportView(txtAreaInfoLocais);
+
         javax.swing.GroupLayout panelAdicionaInscricaoLayout = new javax.swing.GroupLayout(panelAdicionaInscricao);
         panelAdicionaInscricao.setLayout(panelAdicionaInscricaoLayout);
         panelAdicionaInscricaoLayout.setHorizontalGroup(
             panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdicionaInscricaoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionaInscricaoLayout.createSequentialGroup()
+                .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAdicionaInscricaoLayout.createSequentialGroup()
+                        .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPessoas)
+                            .addComponent(labelExplicacao))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdicionaInscricaoLayout.createSequentialGroup()
+                        .addComponent(comboBoxPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBoxLocais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLocais))
+                        .addGap(110, 110, 110))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdicionaInscricaoLayout.createSequentialGroup()
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblErro, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnInscrever))
-                    .addComponent(labelExplicacao, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAdicionaInscricaoLayout.createSequentialGroup()
-                        .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBoxPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelPessoas))
-                        .addGap(223, 223, 223)
-                        .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelLocais)
-                            .addComponent(comboBoxLocais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdicionaInscricaoLayout.createSequentialGroup()
+                        .addGap(0, 146, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         panelAdicionaInscricaoLayout.setVerticalGroup(
             panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,13 +132,14 @@ public class AdicionaInscricao extends javax.swing.JFrame {
                     .addComponent(labelPessoas)
                     .addComponent(labelLocais))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(comboBoxPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboBoxLocais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                    .addComponent(comboBoxLocais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelAdicionaInscricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInscrever)
-                    .addComponent(lblErro)
                     .addComponent(btnVoltar))
                 .addContainerGap())
         );
@@ -133,7 +148,9 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelAdicionaInscricao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelAdicionaInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +188,7 @@ public class AdicionaInscricao extends javax.swing.JFrame {
                         "Essa pessoa já está inscrita nesse local.");
             }
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Atingiu o limite"
+            JOptionPane.showMessageDialog(rootPane, "Atingiu o limite "
                     + "de locais");
         }
         
@@ -190,17 +207,31 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         return;
     }//GEN-LAST:event_comboBoxPessoasMouseClicked
 
+    private void comboBoxLocaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxLocaisActionPerformed
+        Local local = gdc.getLocaisCoimbra().get(0);
+        
+        for (Local l: gdc.getLocaisCoimbra()) {
+            if (l.getNome() == comboBoxLocais.getSelectedItem()) {
+                local = l;
+                break;
+            }
+        }
+       
+        txtAreaInfoLocais.setText(local.toString());
+    }//GEN-LAST:event_comboBoxLocaisActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInscrever;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> comboBoxLocais;
     private javax.swing.JComboBox<String> comboBoxPessoas;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelExplicacao;
     private javax.swing.JLabel labelLocais;
     private javax.swing.JLabel labelPessoas;
-    private javax.swing.JLabel lblErro;
     private javax.swing.JPanel panelAdicionaInscricao;
+    private javax.swing.JTextArea txtAreaInfoLocais;
     // End of variables declaration//GEN-END:variables
 
     private boolean validaInscricao(Pessoa p, Local l) {

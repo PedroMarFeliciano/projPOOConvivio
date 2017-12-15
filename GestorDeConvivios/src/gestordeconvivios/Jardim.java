@@ -57,5 +57,11 @@ public class Jardim extends Parque {
     public float getArea() {
         return area;
     }
+
+    @Override
+    public String toString() {
+        return "Tipo: parque\n" +
+               "Área: " + area;
+    }
     
 }
