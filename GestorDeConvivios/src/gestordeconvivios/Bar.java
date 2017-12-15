@@ -13,8 +13,9 @@ import java.util.ArrayList;
  */
 public class Bar extends Local {
 
-    private int lotacao, guestLimit;
+    private int lotacao, guestLimit, inscritos;
     private float consumoMinimo;
+    private ArrayList<Pessoa> guestList;
     
     /**
      * Cria uma nova instancia de Bar.
@@ -30,6 +31,7 @@ public class Bar extends Local {
         this.lotacao = lotacao;
         
         guestLimit = (int) (lotacao * porcentagemGuestList / 100);
+        ArrayList<Pessoa> guesList = new ArrayList();
     }
     
     /**
@@ -42,8 +44,8 @@ public class Bar extends Local {
     @Override
     public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
         Inscricao naoBoemio;
-        
-        if (getInscritos() < guestLimit) {
+            
+        if (getInscritos() < lotacao) {
             setInscritos(getInscritos() + 1);
             return true;        
         } else if ((naoBoemio = procuraNaoBoemio(inscricoes)) != null){
@@ -74,8 +76,8 @@ public class Bar extends Local {
     protected Inscricao procuraNaoBoemio(ArrayList<Inscricao> inscricoes) {
         Inscricao ultimoNaoBoemio = null;
         
-        /* laço para percorrer todos os valores de inscritos e devolver o indice
-         do ultimo inscrito que nao seja boemio
+        //laço para percorrer todos os valores de inscritos e devolver o indice
+        //do ultimo inscrito que nao seja boemio
         for (Inscricao inscrito: inscricoes) {
             if (inscrito.getLocal().equals(this) &&
                     (inscrito.getInscrito().getPerfil().equalsIgnoreCase("boemio")
@@ -83,7 +85,7 @@ public class Bar extends Local {
                 ultimoNaoBoemio = inscrito;
             }
         }
-        */
+        
         return ultimoNaoBoemio;
     }
 
@@ -105,4 +107,12 @@ public class Bar extends Local {
         return consumoMinimo;
     }
     
+    public boolean valLotacao(){
+        
+        if(this.inscritos < this.lotacao)
+            return true;
+        else
+            return false;
+        
+    }
 }

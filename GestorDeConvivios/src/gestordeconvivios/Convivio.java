@@ -52,10 +52,6 @@ public class Convivio {
                    ". Inscrição reservada à comunidade do DEI.");
            return;
        }
-       inscricoes.add(new Inscricao(local, pessoa));
-       System.out.println("Inscrição realizada com sucesso: " + pessoa);
-           
-        
         
         for (Local localCadastrado: locaisCadastrados) {
             if (localCadastrado.equals(local)) {
@@ -69,8 +65,10 @@ public class Convivio {
             return;
         }
         if (local.addInscrito(inscricoes)) {
+            pessoa.contaLocais();
             inscricoes.add(new Inscricao(local, pessoa));
-            System.out.println("Inscrição realizada com sucesso: " + pessoa);
+            System.out.println("Inscrição realizada com sucesso: " +
+                    pessoa.getNome() + pessoa.getNumLocais());
         }
         else {
             System.out.println("Erro ao realizar a inscricao.");

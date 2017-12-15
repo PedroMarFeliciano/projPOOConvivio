@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f9b9e8d84be71cd4b5155c5b16a155a47c2c49b1
 package gestordeconvivios;
 
 import java.io.BufferedReader;
@@ -22,14 +18,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-<<<<<<< HEAD
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-=======
+
+
+
 import java.util.Collections;
 import java.util.Comparator;
->>>>>>> f9b9e8d84be71cd4b5155c5b16a155a47c2c49b1
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -61,20 +57,6 @@ import java.util.Comparator;
         fichLocais();
         System.out.println();
         
-        //métodos para teste
-        Convivio conv = new Convivio("Festança!!");
-        
-        printFichObjLocais();
-        printFichObjPessoas();
- 
-        pedeDadosPessoa();
-        
-        System.out.println("Locais disponíveis para visitar:");
-        printFichObjLocais();
-        
-        printPessoas();
-
-        
         addConvivio(locaisCoimbra, "Primeiro Convivio");
         MenuInicial mi = new MenuInicial(this);
         
@@ -87,20 +69,7 @@ import java.util.Comparator;
                 
         criaFichTxtPessoas();
            leFichTxtPessoas();
-           //printPessoas();
-           
-           try {
-               criaFichObjPessoas();
-           } catch (IOException ex) {
-               System.out.println("Erro ao executar a funcao que cria ficheiro"
-                       + " objecto.");
-           }
-           /*try {
-               printFichObjPessoas();
-           } catch (IOException ex) {
-               System.out.println("Erro ao executar a funcao que faz print do "
-                       + "ficheiro objecto.");
-           }*/
+           criaFichObjPessoas();
     }
            
         
@@ -222,7 +191,7 @@ import java.util.Comparator;
      * informação das pessoas
      * @throws IOException 
      */
-    private void criaFichObjPessoas() throws IOException {
+    private void criaFichObjPessoas(){
         
         
         try {
@@ -233,8 +202,11 @@ import java.util.Comparator;
             os.close();
 
         } catch (FileNotFoundException ex) {
-            System.out.println("Erro ao escrever no ficheiro PessoasObj\n"
-                    + "Erro:" + ex);
+            System.out.println("Ficheiro PessoasObj nao existe\n"
+                    + "Erro: " + ex);
+        } catch (IOException ex) {
+            System.out.println("Erro na escrita / leitura do ficheiro"
+                    + "PessoasObj\n" + "Erro: " + ex);
         }
     }
     
@@ -260,9 +232,9 @@ import java.util.Comparator;
             is.close();
 
         } catch (ClassNotFoundException ex) {
-            System.out.println("Nao foi possivel ler o ficheiro PessoasObj");
+            System.out.println("A classe não foi encontrada");
         } catch (FileNotFoundException ex) {
-            System.out.println("Nao foi possivel encontrar o arquivo "
+            System.out.println("Nao foi possivel encontrar o ficheiro "
                     + "LocaisObj.\nErro: " + ex);
         } catch (IOException ex) {
             System.out.println("Erro na leitura.\nErro: " + ex);
@@ -325,9 +297,9 @@ import java.util.Comparator;
             pw.println("exp,TAGV,15.131,6.056,2.75,Fotografia");
             
             //Bares
-            pw.println("bar,Quebra-Costas,40.212,12.345,45,5");
-            pw.println("bar,Cantinas Amarelas,33.431,5.413,250,15");
-            pw.println("bar,Jardins da AAC,20.111,7,715,400,10");
+            pw.println("bar,Quebra-Costas,40.212,12.345,3,5");
+            pw.println("bar,Cantinas Amarelas,33.431,5.413,2,15");
+            pw.println("bar,Jardins da AAC,20.111,7,715,4,10");
             
             pw.close();
             
@@ -555,231 +527,6 @@ import java.util.Comparator;
         return pessoas;
     }
     
-    /**
-     * Função que pede os dados de uma nova pessoa que pretende inscrever-se no
-     * convívio
-     * dados é uma array de strings. Correspondência entre informação da pessoa
-     * contida no índice e respectivo índice: "nome" em dados[0], "perfil" em
-     * dados[1], "departamento" em dados[2], mail em dados[3], palavraChave em
-     * dados[4]
-     */
-    private void pedeDadosPessoa() {
-        
-        String[] dados = new String[5];
-        Scanner sc = new Scanner(System.in);
-        
-        
-        System.out.println("Introduza o seu nome.");
-        dados[0] = sc.nextLine();
-        
-        System.out.println("Qual o seu perfil?");
-        //função que permite à pessoa escolher o seu perfil
-        dados[1] = perfilPessoa();
-                
-        System.out.println("Qual o seu departamento?");
-        //função que permite à pessoa escolher o departamento a que pertence
-        dados[2] = selDepartamentoPessoa();
-        
-        System.out.println("Introduza o seu mail.");
-        dados[3] = sc.nextLine();
-        
-        System.out.println("Introduza a sua palavra chave.");
-        dados[4] = sc.nextLine();
-      
-        System.out.println("Qual o seu tipo de pessoa?");
-        //função que permite à pessoa escolher a sua função no departamento
-        tipoPessoa(dados);
-        
-    }
-    /**
-     * Função para escolha do perfil a que a pessoa pertence
-     * @return devolve str, uma string com o perfil seleccionado pela pessoa
-     */
-    private String perfilPessoa(){
-        
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("1. Desportivo");
-        System.out.println("2. Cultural");
-        System.out.println("3. Boémio");
-        System.out.println("4. Poupadinho");
-        
-        x = sc.nextInt();
-        
-        while (x < 1 || x > 4 ){
-            System.out.println("P.f. introduza um número correto.");
-            x = sc.nextInt();
-        }
-        
-        switch (x){
-            
-            case 1:
-                str = "Desportivo";
-                break;
-            case 2:
-                str = "Cultural";
-                break;
-            
-             case 3:
-                str = "Boemio";
-                break;
-                
-             case 4:
-                str = "Poupadinho";
-                break;       
-                
-        }
-      
-        return str;
-        
-    }
-    
-    /**
-     * Função para a pessoa definir o tipo a que pertence
-     * @return devolve str, uma string com o tipo de pessoa seleccionado
-     */
-    
-    private String selDepartamentoPessoa(){
-        
-        Scanner sc = new Scanner(System.in);
-        
-        
-        System.out.println("1. DEI");
-        System.out.println("2. Outro");
-        
-        x = sc.nextInt();
-        
-        while (x < 1 || x > 2 ){
-            System.out.println("P.f. introduza um número correto.");
-            x = sc.nextInt();
-        }
-            
-        switch (x){
-            
-            case 1:
-                str = "DEI";
-                break;
-                
-            case 2:
-                System.out.println("P.f. introduza o departamento:");
-                str = sc.nextLine();
-                break;
-        }
-        
-        return str;
-        
-    }
-   
-    /**
-     * 
-     * @param dados 
-     */
-    private void tipoPessoa(String[] dados){
-        
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("1. Professor");
-        System.out.println("2. Aluno");
-        System.out.println("3. Funcionario");
-        
-        x = sc.nextInt();
-        
-        while (x < 1 || x > 3 ){
-            System.out.println("P.f. introduza um número correto.");
-            x = sc.nextInt();
-        }
-            
-        switch (x){
-            
-            case 1:
-                System.out.println("Qual o seu grau?");
-                //função que permite ao professor escolher o seu grau
-                str = grauProf();
-                Professor p = new Professor(dados[0], dados[1], dados[2],
-                        dados[3], dados[4], str);
-                addPessoa(p);
-                break;
-            case 2:
-                System.out.println("Qual o seu curso?");
-                str = sc.nextLine();
-                Aluno al = new Aluno(dados[0], dados[1], dados[2],
-                        dados[3], dados[4], str);
-                addPessoa(al);
-                break;
-            
-             case 3:
-                System.out.println("Qual o seu horário?");
-                //função que permite ao funcionario escolher o seu horário
-                str = horarioFunc();
-                Funcionario f = new Funcionario(dados[0], dados[1], dados[2],
-                        dados[3], dados[4], str);
-                addPessoa(f);
-                break;     
-        }
-    
-    }
-    
-    private String grauProf(){
-        
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("1. Auxiliar");
-        System.out.println("2. Associado");
-        System.out.println("3. Catedrático");
-        
-        x = sc.nextInt();
-        
-        while (x < 1 || x > 3 ){
-            System.out.println("P.f. introduza um número correto.");
-            x = sc.nextInt();
-        }
-            
-        switch (x){
-            
-            case 1:
-                str = "Auxiliar";
-                break;
-                
-            case 2:
-                str = "Associado";
-                break;
-            
-             case 3:
-                str = "Catedrático";
-                break;       
-        }
-    return str;
-    
-    }
-    
-    private String horarioFunc(){
-        
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("1. Tempo parcial");
-        System.out.println("2. Tempo integral");
-        
-        x = sc.nextInt();
-        
-        while (x < 1 || x > 2 ){
-            System.out.println("P.f. introduza um número correto.");
-            x = sc.nextInt();
-        }
-            
-        switch (x){
-            
-            case 1:
-                str = "Tempo parcial";
-                break;
-                
-            case 2:
-                str = "Tempo integral";
-                break;     
-        }
-    return str;
-    
-    }
-  
     /**
      * Adiciona uma nova pessoa que pretende participar do convivio
      * 

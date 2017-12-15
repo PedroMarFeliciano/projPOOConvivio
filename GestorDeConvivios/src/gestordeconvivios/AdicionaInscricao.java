@@ -62,6 +62,11 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         labelLocais.setText("Locais");
 
         comboBoxPessoas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxPessoas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboBoxPessoasMouseClicked(evt);
+            }
+        });
 
         comboBoxLocais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -156,16 +161,19 @@ public class AdicionaInscricao extends javax.swing.JFrame {
             }
         }
         
-        // adicionar pessoa.contaLocal()
-        if (validaInscricao(pessoa, local)) {
-            gdc.getConvivios().get(0).adInscricao(local, pessoa);
-            JOptionPane.showMessageDialog(rootPane, 
-                    "Inscrição realizada com sucesso.");
+        if (pessoa.contaLocais()) {
+            if (validaInscricao(pessoa, local)) {
+                gdc.getConvivios().get(0).adInscricao(local, pessoa);
+                JOptionPane.showMessageDialog(rootPane,
+                        "Inscrição realizada com sucesso.");
+            } else {
+                JOptionPane.showMessageDialog(rootPane,
+                        "Essa pessoa já está inscrita nesse local.");
+            }
         } else {
-            JOptionPane.showMessageDialog(rootPane, 
-                    "Essa pessoa já está inscrita nesse local.");
+            JOptionPane.showMessageDialog(rootPane, "Atingiu o limite"
+                    + "de locais");
         }
-        
         
         this.setVisible(false);
         mi.setVisible(true);
@@ -175,6 +183,12 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         this.setVisible(false);
         mi.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void comboBoxPessoasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboBoxPessoasMouseClicked
+
+        
+        return;
+    }//GEN-LAST:event_comboBoxPessoasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -190,6 +204,7 @@ public class AdicionaInscricao extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean validaInscricao(Pessoa p, Local l) {
+
         for (Inscricao i: gdc.getConvivios().get(0).getInscricoes()) {
             if (i.getInscrito() == p && i.getLocal() == l) {
                 return false;
