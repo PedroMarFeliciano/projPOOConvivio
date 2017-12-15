@@ -142,7 +142,7 @@ public class Pessoa implements Serializable{
     
     public boolean contaLocais(){
         
-        if (this.numLocais < 2){
+        if (this.numLocais < 5){
             this.numLocais++;
             return true;
         }

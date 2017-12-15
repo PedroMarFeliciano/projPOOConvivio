@@ -15,7 +15,6 @@ public class Bar extends Local {
 
     private int lotacao, guestLimit, inscritos;
     private float consumoMinimo;
-    private ArrayList<Pessoa> guestList;
     
     /**
      * Cria uma nova instancia de Bar.
@@ -31,7 +30,6 @@ public class Bar extends Local {
         this.lotacao = lotacao;
         
         guestLimit = (int) (lotacao * porcentagemGuestList / 100);
-        ArrayList<Pessoa> guesList = new ArrayList();
     }
     
     /**
@@ -75,13 +73,15 @@ public class Bar extends Local {
      */
     protected Inscricao procuraNaoBoemio(ArrayList<Inscricao> inscricoes) {
         Inscricao ultimoNaoBoemio = null;
+        int limiteGuestList = 0;
         
         //laço para percorrer todos os valores de inscritos e devolver o indice
         //do ultimo inscrito que nao seja boemio
         for (Inscricao inscrito: inscricoes) {
             if (inscrito.getLocal().equals(this) &&
                     (inscrito.getInscrito().getPerfil().equalsIgnoreCase("boemio")
-                    == false)) {
+                    == false) && limiteGuestList < guestLimit) {
+                limiteGuestList++;
                 ultimoNaoBoemio = inscrito;
             }
         }
