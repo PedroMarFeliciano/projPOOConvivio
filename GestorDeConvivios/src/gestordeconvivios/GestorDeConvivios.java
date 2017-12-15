@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f9b9e8d84be71cd4b5155c5b16a155a47c2c49b1
 package gestordeconvivios;
 
 import java.io.BufferedReader;
@@ -19,9 +22,14 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+import java.util.Collections;
+import java.util.Comparator;
+>>>>>>> f9b9e8d84be71cd4b5155c5b16a155a47c2c49b1
 
 /**
  *
@@ -29,9 +37,9 @@ import java.util.logging.Logger;
  */
     public class GestorDeConvivios {
 
-    ArrayList<Pessoa> pessoas;
-    ArrayList<Local> locaisCoimbra;
-    ArrayList<Convivio> convivios;
+    private ArrayList<Pessoa> pessoas;
+    private ArrayList<Local> locaisCoimbra;
+    private ArrayList<Convivio> convivios;
     
     int x;
     String str = new String();
@@ -66,6 +74,9 @@ import java.util.logging.Logger;
         
         printPessoas();
 
+        
+        addConvivio(locaisCoimbra, "Primeiro Convivio");
+        MenuInicial mi = new MenuInicial(this);
         
     }
     
@@ -499,7 +510,12 @@ import java.util.logging.Logger;
     }
     
     public void serializaLocais() {
-        
+        Collections.sort(locaisCoimbra, new Comparator<Local>() {
+            @Override
+            public int compare(Local o1, Local o2) {
+                return o2.getInscritos() - o1.getInscritos();
+            }
+        });
     }
     
     /**
@@ -531,8 +547,12 @@ import java.util.logging.Logger;
      * 
      * @param titulo 
      */
-    public void addConvivio(String titulo) {
-        convivios.add(new Convivio(titulo));
+    public void addConvivio(ArrayList<Local> locais, String titulo) {
+        convivios.add(new Convivio(locais, titulo));
+    }
+
+    public ArrayList<Pessoa> getPessoas() {
+        return pessoas;
     }
     
     /**
@@ -769,4 +789,13 @@ import java.util.logging.Logger;
         pessoas.add(pessoa);
     }
 
+    public ArrayList<Local> getLocaisCoimbra() {
+        return locaisCoimbra;
+    }
+
+    public ArrayList<Convivio> getConvivios() {
+        return convivios;
+    }
+
+    
 }

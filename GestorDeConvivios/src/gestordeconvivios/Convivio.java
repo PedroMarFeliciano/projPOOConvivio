@@ -18,14 +18,16 @@ public class Convivio {
     
     private ArrayList<Inscricao> inscricoes;
     private ArrayList<Local> locaisCadastrados;
-    String titulo;
+    private String titulo;
+
     
     /**
      * Cria uma nova instância de Convivio.
      * 
      * @param titulo titulo do convivio que sera criado
      */
-    public Convivio(String titulo) {
+    public Convivio(ArrayList<Local> locaisCadastrados, String titulo) {
+        this.locaisCadastrados = locaisCadastrados;
         this.titulo = titulo;
         
         inscricoes = new ArrayList();
@@ -131,5 +133,13 @@ public class Convivio {
         }
         
         return receitaConvivio;
+    }
+    
+    public ArrayList<Inscricao> getInscricoes() {
+        return inscricoes;
+    }
+    
+    public String getTitulo() {
+        return titulo;
     }
 }
