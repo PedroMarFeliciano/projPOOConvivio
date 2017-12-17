@@ -153,7 +153,5 @@ public abstract class Pessoa implements Serializable{
     public int getNumLocais() {
         return numLocais;
     }
-
-    
 }
 

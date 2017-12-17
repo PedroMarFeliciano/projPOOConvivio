@@ -45,24 +45,23 @@ public class Exposicao extends Local {
     public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
         setInscritos(getInscritos() + 1);
         
-        //if (eEstudante(inscricoes)) quantidadeEstudantes++; 
+        quantidadeEstudantes = 0;
+        for (Inscricao i: inscricoes) {
+            if (eEstudante(i)) quantidadeEstudantes++; 
+        }
         
         return true;
     }
     
-    /* TODO
-    public boolean eEstudante(ArrayList<Inscricao> inscr) {
-        
-       String tipo[];
-       
-       for (Insricao inscricao: inscr)
-               
-               
-       if (.getTipoPessoa().compareTo("Aluno") == 0)
-           return true;
-       
-       return false;
-    }*/
+    /**
+     * Verifica se o inscrito é estudante
+     * 
+     * @param inscr inscrição da pessoa que deseja verificar
+     * @return true caso seja estudante, false caso não seja
+     */
+    public boolean eEstudante(Inscricao inscr) {
+        return inscr.getInscrito().getTipoPessoa().equalsIgnoreCase("estudante");
+    }
     
     /**
      * Calcula e retorna um valor estimado de receita para o local, contando com 
