@@ -5,6 +5,8 @@
  */
 package gestordeconvivios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Pedro Feliciano
@@ -44,6 +46,7 @@ public class MenuInicial extends javax.swing.JFrame {
         btnNovaInscricao = new javax.swing.JButton();
         btnListaInscricoes = new javax.swing.JButton();
         btnListaInscricoes1 = new javax.swing.JButton();
+        btnReceita = new javax.swing.JButton();
         lblNomeConvivio = new javax.swing.JLabel();
         labelNumPessoasLocais = new javax.swing.JLabel();
 
@@ -70,15 +73,23 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
 
+        btnReceita.setText("Receita");
+        btnReceita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReceitaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnNovaInscricao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnListaInscricoes, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
-                    .addComponent(btnListaInscricoes1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE))
+                    .addComponent(btnListaInscricoes1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                    .addComponent(btnReceita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelPrincipalLayout.setVerticalGroup(
@@ -90,7 +101,9 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addComponent(btnListaInscricoes, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnListaInscricoes1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReceita, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         lblNomeConvivio.setText("jLabel1");
@@ -159,11 +172,23 @@ public class MenuInicial extends javax.swing.JFrame {
         ll.setVisible(true);
     }//GEN-LAST:event_btnListaInscricoes1ActionPerformed
 
+    private void btnReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReceitaActionPerformed
+        
+        float rec;
+        
+        rec = gdc.getConvivios().get(0).contabilizaRceitas();
+        String text = ("Receita total estimada: " + rec + " €");
+        
+        JOptionPane.showMessageDialog(rootPane, "Receita total estimada: " + rec + " €");
+        
+    }//GEN-LAST:event_btnReceitaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListaInscricoes;
     private javax.swing.JButton btnListaInscricoes1;
     private javax.swing.JButton btnNovaInscricao;
+    private javax.swing.JButton btnReceita;
     private javax.swing.JLabel labelNumPessoasLocais;
     private javax.swing.JLabel lblNomeConvivio;
     private javax.swing.JPanel panelPrincipal;

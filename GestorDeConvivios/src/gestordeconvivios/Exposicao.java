@@ -60,7 +60,7 @@ public class Exposicao extends Local {
      * @return true caso seja estudante, false caso não seja
      */
     public boolean eEstudante(Inscricao inscr) {
-        return inscr.getInscrito().getTipoPessoa().equalsIgnoreCase("estudante");
+        return inscr.getInscrito().getTipoPessoa().equalsIgnoreCase("aluno");
     }
     
     /**
