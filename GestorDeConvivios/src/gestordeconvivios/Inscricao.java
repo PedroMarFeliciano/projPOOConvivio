@@ -42,4 +42,15 @@ public class Inscricao {
     public Pessoa getInscrito() {
         return inscrito;
     }
+
+    /**
+     * Altera a pessoa inscrita.
+     * 
+     * @param inscrito nova pessoa inscrita no local.
+     */
+    public void setInscrito(Pessoa inscrito) {
+        this.inscrito = inscrito;
+    }
+    
+    
 }

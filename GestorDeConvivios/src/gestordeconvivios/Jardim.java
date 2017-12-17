@@ -34,7 +34,7 @@ public class Jardim extends Parque {
      * @return true, sempre.
      */
     @Override
-    public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
+    public boolean addInscrito(ArrayList<Inscricao> inscricoes, Pessoa p) {
         setInscritos(getInscritos() + 1);
         return true;
     }

@@ -64,7 +64,7 @@ public class Convivio {
             System.out.println("Local não cadastrado.");
             return false;
         }
-        if (local.addInscrito(inscricoes)) {
+        if (local.addInscrito(inscricoes, pessoa)) {
         
             inscricoes.add(new Inscricao(local, pessoa));
             System.out.println("Inscrição realizada com sucesso: " +
