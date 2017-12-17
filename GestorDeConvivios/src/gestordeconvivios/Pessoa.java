@@ -162,5 +162,16 @@ public abstract class Pessoa implements Serializable{
     public String getCurso() {
         return "";
     }
+
+    /**
+     * Define um novo valor para numLocais
+     * 
+     * @param numLocais novo valor de numLocais
+     */
+    public void setNumLocais(int numLocais) {
+        this.numLocais = numLocais;
+    }
+    
+    
 }
 

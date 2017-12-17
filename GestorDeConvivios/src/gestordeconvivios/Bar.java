@@ -41,14 +41,15 @@ public class Bar extends Local {
      * @return boolean
      */
     @Override
-    public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
+    public boolean addInscrito(ArrayList<Inscricao> inscricoes, Pessoa p) {
         Inscricao naoBoemio;
             
         if (getInscritos() < lotacao) {
             setInscritos(getInscritos() + 1);
             return true;        
         } else if ((naoBoemio = procuraNaoBoemio(inscricoes)) != null){
-            inscricoes.remove(naoBoemio);
+            naoBoemio.getInscrito().setNumLocais(naoBoemio.getInscrito().getNumLocais()+ 1);
+            naoBoemio.setInscrito(p);
             return true;
         }
         return false;

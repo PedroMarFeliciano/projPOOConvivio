@@ -42,7 +42,7 @@ public class Exposicao extends Local {
      * @return true, sempre.
      */
     @Override
-    public boolean addInscrito(ArrayList<Inscricao> inscricoes) {
+    public boolean addInscrito(ArrayList<Inscricao> inscricoes, Pessoa p) {
         setInscritos(getInscritos() + 1);
         
         quantidadeEstudantes = 0;
