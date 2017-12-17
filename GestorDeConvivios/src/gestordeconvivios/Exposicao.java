@@ -45,10 +45,8 @@ public class Exposicao extends Local {
     public boolean addInscrito(ArrayList<Inscricao> inscricoes, Pessoa p) {
         setInscritos(getInscritos() + 1);
         
-        quantidadeEstudantes = 0;
-        for (Inscricao i: inscricoes) {
-            if (eEstudante(i)) quantidadeEstudantes++; 
-        }
+        if (eEstudante(p)) quantidadeEstudantes++; 
+        
         
         return true;
     }
@@ -59,8 +57,8 @@ public class Exposicao extends Local {
      * @param inscr inscrição da pessoa que deseja verificar
      * @return true caso seja estudante, false caso não seja
      */
-    public boolean eEstudante(Inscricao inscr) {
-        return inscr.getInscrito().getTipoPessoa().equalsIgnoreCase("estudante");
+    public boolean eEstudante(Pessoa p) {
+        return p.getTipoPessoa().equalsIgnoreCase("estudante");
     }
     
     /**
