@@ -191,9 +191,15 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         
         if (pessoa.contaLocais()) {
             if (validaInscricao(pessoa, local)) {
-                gdc.getConvivios().get(0).adInscricao(local, pessoa);
-                JOptionPane.showMessageDialog(rootPane,
+                if (gdc.getConvivios().get(0).adInscricao(local, pessoa)) {
+                    JOptionPane.showMessageDialog(rootPane,
                         "Inscrição realizada com sucesso.");
+                }
+                else {
+                    JOptionPane.showMessageDialog(rootPane, "Inscrição não "
+                            + "realizada.");
+                }
+                
             } else {
                 JOptionPane.showMessageDialog(rootPane,
                         "Essa pessoa já está inscrita nesse local.");

@@ -40,7 +40,7 @@ public class Convivio {
      * @param local para o qual a pessoa quer fazer a inscricao
      * @param pessoa que quer fazer a inscricao
      */
-    public void adInscricao(Local local, Pessoa pessoa) {
+    public boolean adInscricao(Local local, Pessoa pessoa) {
         boolean cadastrado = false;
         String dep;
         
@@ -50,7 +50,7 @@ public class Convivio {
            System.out.println("Não é possível fazer a inscrição da pessoa: " +
                    pessoa.getNome() + " / " + dep + 
                    ". Inscrição reservada à comunidade do DEI.");
-           return;
+           return false;
        }
         
         for (Local localCadastrado: locaisCadastrados) {
@@ -62,7 +62,7 @@ public class Convivio {
         
         if (!cadastrado) {
             System.out.println("Local não cadastrado.");
-            return;
+            return false;
         }
         if (local.addInscrito(inscricoes)) {
         
@@ -72,9 +72,10 @@ public class Convivio {
                     (5 - pessoa.getNumLocais()));
         }
         else {
-            System.out.println("Erro ao realizar a inscricao.");
+            System.out.println("Estabelecimento cheio.");
+            return false;
         }
-        
+        return true;
     }
     
     /**
