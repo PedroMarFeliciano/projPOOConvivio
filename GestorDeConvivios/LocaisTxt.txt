@@ -7,6 +7,6 @@ desp,Campo da Sereia,27.414,5.321,Futebol
 exp,Galeria Casa da Cultura,28.331,4.902,3.0,Pintura
 exp,Museu Machado Castro,24.111,7.408,2.5,Escultura
 exp,TAGV,15.131,6.056,2.75,Fotografia
-bar,Quebra-Costas,40.212,12.345,2,50
-bar,Cantinas Amarelas,33.431,5.413,8,25
-bar,Jardins da AAC,20.111,7.715,9,30
+bar,Quebra-Costas,40.212,12.345,2,50,10
+bar,Cantinas Amarelas,33.431,5.413,8,25,5.5
+bar,Jardins da AAC,20.111,7.715,9,30,8.5
