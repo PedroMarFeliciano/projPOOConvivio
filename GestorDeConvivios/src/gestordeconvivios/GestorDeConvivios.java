@@ -84,9 +84,9 @@ import java.util.Comparator;
             //Professores
             pw.println("prof,Paulo Oliveira,poupadinho,DEI,po@dei.uc.pt,"
                     + "qwerty,Auxiliar");
-            pw.println("prof,Bacano,boemio,DEI,bacano@dei.uc.pt,"
+            pw.println("prof,Pedro Pereira,boemio,DEI,bacano@dei.uc.pt,"
                     + "asdfg,Associado");
-            pw.println("prof,JMSR,cultural,DEI,jmsr@dem.uc.pt,1234,"
+            pw.println("prof,Daniela Matos,cultural,DEI,jmsr@dem.uc.pt,1234,"
                     + "Catedratico");
             pw.println("prof,Manuel Silva,desportivo,DEI,ms@dei.uc.pt,"
                     + "a1b2c3,Catedratico");
@@ -102,13 +102,13 @@ import java.util.Comparator;
                     + "Tempo parcial");
             
             //Alunos
-            pw.println("al,Anacleto Martins,boemio,DEI,am@dei.uc.pt,tatetitotu,"
+            pw.println("al,Jose Martins,boemio,DEI,am@dei.uc.pt,tatetitotu,"
                     + "Lic. Engenharia Informatica");
             pw.println("al,Maria Costa,poupadinho,DEI,mc@dei.uc.pt,deec1234,"
                     + "Lic. Engenharia Informatica");
             pw.println("al,Samuel S.,cultural,DEI,ss@fl.uc.pt,"
-                    + "mmnnbb,Lic. Letras");
-            pw.println("al,Duarte Bom,boemio,DEI,db@dei.uc.pt,"
+                    + "mmnnbb, Mestrado Segurança Informatica");
+            pw.println("al,Duarte Bandeira,boemio,DEI,db@dei.uc.pt,"
                     + "tintoecerveja,Lic. Design Multimedia");
 
             pw.close();
