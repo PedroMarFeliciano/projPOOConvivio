@@ -30,7 +30,7 @@ public class Jardim extends Parque {
     /**
      * Adiciona um novo inscrito ao Jardim.
      * 
-     * @param inscricoes - ArrayList<Inscricao>
+     * @param inscricoes - ArrayList de Inscricao
      * @return true, sempre.
      */
     @Override

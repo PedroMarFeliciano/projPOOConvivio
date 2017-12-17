@@ -519,7 +519,9 @@ import java.util.Comparator;
      * Cria um novo convivio.
      * O usuario deve informar o titulo desse convivio.
      * 
-     * @param titulo 
+     * @param locais ArrayList contendo os locais que participarão desse
+     * convívio
+     * @param titulo título do convívio
      */
     public void addConvivio(ArrayList<Local> locais, String titulo) {
         convivios.add(new Convivio(locais, titulo));

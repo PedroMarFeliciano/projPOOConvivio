@@ -14,9 +14,14 @@ public class Aluno extends Pessoa {
     private String curso;
 
     /**
-     * Construtor para criação de um objecto do tipo Aluno
-     *
-     * @param curso define o curso que o aluno frequenta
+     * Cria uma nova instância de Aluno
+     * 
+     * @param nome          - nome do aluno em questão
+     * @param perfil        - perfil do aluno
+     * @param departamento  - sigla departamento a qual pertece
+     * @param mail          - email do aluno
+     * @param palavraChave  - palavra chave para aceder ao sistema
+     * @param curso         - curso que cursa
      */
     public Aluno(String nome, String perfil, String departamento, String mail,
             String palavraChave, String curso) {

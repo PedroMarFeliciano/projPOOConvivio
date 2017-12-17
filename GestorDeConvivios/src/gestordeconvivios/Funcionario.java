@@ -14,8 +14,13 @@ public class Funcionario extends Pessoa {
     private String tipo;
 
     /**
-     * Construtor para criação de um objecto do tipo Pessoa
-     *
+     * Construtor para criação de um objecto do tipo Funcionario
+     * 
+     * @param nome nome do funcionário
+     * @param perfil perfil do funcionário
+     * @param departamento sigla do departamento para o qual trabalha
+     * @param mail endereço de email do funcionário
+     * @param palavraChave palavra chave para acessar o sistema
      * @param tipo define o tipo do funcionario: Tempo parcial ou Tempo integral
      */
     public Funcionario(String nome, String perfil, String departamento, String mail,

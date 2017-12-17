@@ -19,6 +19,7 @@ public class Bar extends Local {
     /**
      * Cria uma nova instancia de Bar.
      * 
+     * @param nome nome do local
      * @param lat float que representa a latitude do local
      * @param lng float que representa a longitude do local
      * @param lotacao capacidade maxima do Bar
@@ -36,7 +37,7 @@ public class Bar extends Local {
      * Verifica se o pretendente tem o perfil boemio e, caso consiga fazer a
      * incricao retorna true, senao false.
      * 
-     * @param inscricoes - ArrayList<Inscricao>
+     * @param inscricoes - ArrayList de Inscricao
      * @return boolean
      */
     @Override
@@ -68,7 +69,7 @@ public class Bar extends Local {
      * Procura a ultima pessoa inscrita no Bar que nao e' boemia e retorna essa
      * pessoa.
      * 
-     * @param inscricoes - ArrayList<Inscricao>
+     * @param inscricoes - ArrayList de Inscricao
      * @return Pessoa
      */
     protected Inscricao procuraNaoBoemio(ArrayList<Inscricao> inscricoes) {

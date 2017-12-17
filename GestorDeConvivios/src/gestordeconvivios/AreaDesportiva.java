@@ -51,7 +51,6 @@ public class AreaDesportiva extends Parque {
     /**
      *  Adiciona uma nova modalidade a area desportiva.
      * 
-     * @param inscricoes - ArrayList<Inscricao>
      * @param nomeModalidade nome da modalide que pode ser praticada nesse local
      */
     public void addModalidade(String nomeModalidade) {
@@ -72,10 +71,10 @@ public class AreaDesportiva extends Parque {
     }
 
     /**
-     * Retorna um ArrayList<String> com todas as modalidade presentes nessa
+     * Retorna um ArrayList de String com todas as modalidade presentes nessa
      * area.
      * 
-     * @return ArrayList<String>
+     * @return ArrayList de String
      */
     public ArrayList<String> getModalidades() {
         return modalidades;

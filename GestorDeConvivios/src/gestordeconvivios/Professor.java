@@ -19,6 +19,17 @@ public class Professor extends Pessoa {
      * @param tipo define o tipo do professor: Auxiliar, Associado ou
      * Catedrático
      */
+    /**
+     * Construtor para criação de um objecto do tipo Professor
+     * 
+     * @param nome nome do professor
+     * @param perfil perfil do professor
+     * @param departamento sigla do departamento ao qual pertecem
+     * @param mail endereço de email do professor
+     * @param palavraChave palavra chave para acessar o sistema
+     * @param tipo define o tipo do professor: Auxiliar, Associado ou
+     * Catedrático
+     */
     public Professor(String nome, String perfil, String departamento, String mail,
             String palavraChave, String tipo) {
 

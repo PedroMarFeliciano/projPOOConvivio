@@ -148,7 +148,7 @@ public abstract class Pessoa implements Serializable{
 
     /**
      * Retorna o numero de locais
-     * @return 
+     * @return int, numero de locais inscritos
      */
     public int getNumLocais() {
         return numLocais;

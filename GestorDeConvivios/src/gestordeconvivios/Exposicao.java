@@ -20,6 +20,7 @@ public class Exposicao extends Local {
     /**
      * Cria uma nova instancia de Exposicao.
      * 
+     * @param nome do local da exposição
      * @param lat float que representa a latitude do local
      * @param lng float que representa a longitude do local
      * @param custoIngresso valor que sera cobrado para entrar no local
@@ -37,7 +38,7 @@ public class Exposicao extends Local {
     /**
      * Adiciona um novo inscrito ao local.
      * 
-     * @param inscricoes - ArrayList<Inscricao>
+     * @param inscricoes - ArrayList de Inscricao
      * @return true, sempre.
      */
     @Override

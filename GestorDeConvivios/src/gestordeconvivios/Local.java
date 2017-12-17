@@ -31,8 +31,8 @@ public abstract class Local implements Serializable{
      * Metodo para adicionar uma nova inscricao ao local. Recebe um ArrayList
      * com todas as inscricoes feitas nesse local.
      * 
-     * @param inscricoes - ArrayList<Inscricao>
-     * @return 
+     * @param inscricoes - ArrayList de Inscricao
+     * @return true se a inscricao for realizada, false caso contrário
      */
     public abstract boolean addInscrito(ArrayList<Inscricao> inscricoes);
     

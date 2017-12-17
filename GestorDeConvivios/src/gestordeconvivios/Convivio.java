@@ -22,6 +22,8 @@ public class Convivio {
     /**
      * Cria uma nova instância de Convivio.
      * 
+     * @param locaisCadastrados ArrayList com os locais que fazem parte do
+     * Convívio
      * @param titulo titulo do convivio que sera criado
      */
     public Convivio(ArrayList<Local> locaisCadastrados, String titulo) {
@@ -77,7 +79,7 @@ public class Convivio {
     
     /**
      * Adiciona um novo local ao convivio
-     * @param novoLocal 
+     * @param novoLocal local que sera adicionado 
      */
     public void addNovoLocal(Local novoLocal) {
         locaisCadastrados.add(novoLocal);
@@ -86,10 +88,9 @@ public class Convivio {
     /**
      * Mostra a lista de convidados para um Bar.
      * 
-     * @param bar
-     * @return ArrayList<Pessoa> com todos os inscritos no Bar
+     * @param bar do qual desejamos ver a guest list
+     * @return ArrayList de Pessoa com todos os inscritos no Bar
      */
-    
     public ArrayList<Pessoa> mostraGuestList(Bar bar) {
         ArrayList<Pessoa> pessoasNaGuestList = new ArrayList();
         
@@ -105,7 +106,7 @@ public class Convivio {
     /**
      * Ordena os locais em ordem decrescente de numero de inscritos
      * 
-     * @return ArrayList<Local> ordenado
+     * @return ArrayList de Local ordenado
      */
     public ArrayList<Local> seriacaoLocais() {
         Collections.sort(locaisCadastrados, (Object o1, Object o2) -> {
