@@ -295,9 +295,9 @@ import java.util.Comparator;
             pw.println("exp,TAGV,15.131,6.056,2.75,Fotografia");
             
             //Bares
-            pw.println("bar,Quebra-Costas,40.212,12.345,3,5");
-            pw.println("bar,Cantinas Amarelas,33.431,5.413,2,15");
-            pw.println("bar,Jardins da AAC,20.111,7.715,4,10");
+            pw.println("bar,Quebra-Costas,40.212,12.345,8,25");
+            pw.println("bar,Cantinas Amarelas,33.431,5.413,8,25");
+            pw.println("bar,Jardins da AAC,20.111,7.715,9,30");
             
             pw.close();
             

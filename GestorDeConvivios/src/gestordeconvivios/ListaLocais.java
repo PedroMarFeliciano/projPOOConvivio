@@ -145,10 +145,10 @@ public class ListaLocais extends javax.swing.JFrame {
         } 
         else {
         
-            //BarGuestList guestList = new BarGuestList(this, gdc);
+            BarGuestList guestList = new BarGuestList(this, gdc);
         
             this.setVisible(false);
-            //guestList.setVisible(true);
+            guestList.setVisible(true);
         
             }
         

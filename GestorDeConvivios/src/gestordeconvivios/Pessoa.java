@@ -160,7 +160,7 @@ public abstract class Pessoa implements Serializable{
      * @return null
      */
     public String getCurso() {
-        return null;
+        return "";
     }
 }
 
