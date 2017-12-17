@@ -41,6 +41,11 @@ public class Funcionario extends Pessoa {
         this.tipo = tipo;
     }
     
+    /**
+     * Retorna o tipo de pessoa
+     * 
+     * @return uma String com o tipo de pessoa, nesse caso: Funcionario
+     */
     @Override
     public String getTipoPessoa() {
         return "Funcionario";

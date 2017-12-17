@@ -6,9 +6,7 @@
 package gestordeconvivios;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  *
@@ -134,10 +132,21 @@ public class Convivio {
         return receitaConvivio;
     }
     
+    /**
+     * Retorna o ArrayList de inscrições
+     * 
+     * @return ArrayList de Strings de todas as inscrições realizadas no 
+     * convívio
+     */
     public ArrayList<Inscricao> getInscricoes() {
         return inscricoes;
     }
     
+    /**
+     * Retorna o título do convívio
+     * 
+     * @return String contendo o título do convívio
+     */
     public String getTitulo() {
         return titulo;
     }

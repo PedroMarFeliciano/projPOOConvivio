@@ -26,11 +26,18 @@ public class Aluno extends Pessoa {
 
     }
     
-    @Override
+    /**
+     * Retorna o curso do aluno
+     * @return String contendo o nome do curso
+     */
     public String getCurso() {
         return curso;
     }
     
+    /**
+     * Retorna o tipo de pessoa
+     * @return String contendo o tipo de pessoa, no caso: Aluno
+     */
     @Override
     public String getTipoPessoa() {
         return "Aluno";

@@ -106,16 +106,13 @@ public class Bar extends Local {
     public float getConsumoMinimo() {
         return consumoMinimo;
     }
-    
-    public boolean valLotacao(){
-        
-        if(this.inscritos < this.lotacao)
-            return true;
-        else
-            return false;
-        
-    }
 
+    /**
+     * Função que retorna um String já formatada contendo todos os dados desse
+     * tipo de local
+     * 
+     * @return String formada com os dados do local
+     */
     @Override
     public String toString() {
         return "Tipo.............: bar\n" +

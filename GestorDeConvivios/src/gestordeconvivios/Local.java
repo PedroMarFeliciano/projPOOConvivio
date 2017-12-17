@@ -85,6 +85,11 @@ public abstract class Local implements Serializable{
         return inscritos;
     }
     
+    /**
+     * Função que retorna todos os dados dos locais
+     * 
+     * @return String já formatada contendo todos os dados dos locais
+     */
     @Override
     public abstract String toString();
     

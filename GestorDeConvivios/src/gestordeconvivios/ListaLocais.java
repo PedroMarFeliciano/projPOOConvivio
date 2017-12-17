@@ -14,6 +14,12 @@ public class ListaLocais extends javax.swing.JFrame {
     MenuInicial mi;
     GestorDeConvivios gdc;
     
+    /**
+     * Cria uma nova instância de ListaLocais
+     * 
+     * @param mi  - objecto de MenuInicial
+     * @param gdc - objecto de GestorDeConvivios
+     */
     public ListaLocais(MenuInicial mi, GestorDeConvivios gdc) {
         this.mi = mi;
         this.gdc = gdc;
@@ -43,7 +49,7 @@ public class ListaLocais extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaMostraLocais = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,10 +77,10 @@ public class ListaLocais extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton1.setText("Voltar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -88,7 +94,7 @@ public class ListaLocais extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(187, 187, 187)
-                .addComponent(jButton1)
+                .addComponent(btnVoltar)
                 .addContainerGap(208, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,20 +103,24 @@ public class ListaLocais extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnVoltar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * Volta ao menu anterior
+     * @param evt - evento que ocorreu (parâmetro automático) 
+     */
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
         mi.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

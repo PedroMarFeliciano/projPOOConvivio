@@ -49,7 +49,7 @@ public class Exposicao extends Local {
         return true;
     }
     
-    /*
+    /* TODO
     public boolean eEstudante(ArrayList<Inscricao> inscr) {
         
        String tipo[];
@@ -93,6 +93,12 @@ public class Exposicao extends Local {
         return custoIngresso;
     }
 
+    /**
+     * Função que retorna um String já formatada contendo todos os dados desse
+     * tipo de local
+     * 
+     * @return String formada com os dados do local
+     */
     @Override
     public String toString() {
         return "Tipo................: exposição\n" + 

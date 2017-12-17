@@ -16,6 +16,12 @@ public class AdicionaInscricao extends javax.swing.JFrame {
     GestorDeConvivios gdc;
     MenuInicial mi;
     
+    /**
+     * Construtor da classe AdicionaIncricao
+     * 
+     * @param mi - objecto da classe MenuInicial
+     * @param gdc - objecto de GestorDeConvivios
+     */
     public AdicionaInscricao(MenuInicial mi, GestorDeConvivios gdc) {
         this.mi = mi;
         this.gdc = gdc;
@@ -160,6 +166,11 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Ação de pressionar o botão "Inscrever", que cria adiciona uma nova
+     * inscrição
+     * @param evt - evento que ocorreu (parâmetro automático)
+     */
     private void btnInscreverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscreverActionPerformed
         Local local = null;
         Pessoa pessoa = null;
@@ -196,6 +207,10 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         mi.setVisible(true);
     }//GEN-LAST:event_btnInscreverActionPerformed
 
+    /**
+     * Ação de pressionar o botão "Voltar", volta para o MenuInicial
+     * @param evt  - evento que ocorreu (parâmetro automático)
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
         mi.setVisible(true);
@@ -207,6 +222,13 @@ public class AdicionaInscricao extends javax.swing.JFrame {
         return;
     }//GEN-LAST:event_comboBoxPessoasMouseClicked
 
+    /**
+     * Ação de escolher um novo elemento da combo box. Toda vez que é
+     * selecionado um novo local, suas caracteríscas são apresentadas na
+     * txtAreaInfoLocais, que fica logo abaixo da comboBox de locais.
+     * 
+     * @param evt - evento que ocorreu (parâmetro automático)
+     */
     private void comboBoxLocaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxLocaisActionPerformed
         Local local = gdc.getLocaisCoimbra().get(0);
         
@@ -234,6 +256,14 @@ public class AdicionaInscricao extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaInfoLocais;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Verifica se a pessoa já está inscrita em um dado local.
+     * 
+     * @param p - Pessoa que solicita a inscrilção
+     * @param l - Local no qual a pessoa quer se inscrever
+     * @return true se a pessoa ainda não for inscrita nesse local, false caso
+     * já esteja inscrita
+     */
     private boolean validaInscricao(Pessoa p, Local l) {
 
         for (Inscricao i: gdc.getConvivios().get(0).getInscricoes()) {

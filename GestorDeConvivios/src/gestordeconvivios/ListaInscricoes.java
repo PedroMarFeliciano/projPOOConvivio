@@ -14,6 +14,11 @@ public class ListaInscricoes extends javax.swing.JFrame {
     GestorDeConvivios gdc;
     MenuInicial mi;
     
+    /**
+     * Cria nova instância de ListaInscricoes
+     * @param mi  - objecto de MenuInicial
+     * @param gdc - objecto de GestorDeConvivios
+     */
     public ListaInscricoes(MenuInicial mi, GestorDeConvivios gdc) {
         this.gdc = gdc;
         this.mi = mi;
@@ -123,6 +128,12 @@ public class ListaInscricoes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método que mostra na textArea a lista de locais nos quais a pessoa
+     * selecionada se inscreveu.
+     * 
+     * @param evt - evento que ocorreu (parâmetro automático)
+     */
     private void comboBoxPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPessoasActionPerformed
         
         for (Inscricao i: gdc.getConvivios().get(0).getInscricoes()) {
@@ -143,7 +154,10 @@ public class ListaInscricoes extends javax.swing.JFrame {
             }                   
         }
     }//GEN-LAST:event_comboBoxPessoasActionPerformed
-
+    /**
+     * Volta ao menu anterior
+     * @param evt - evento que ocorreu (parâmetro automático) 
+     */
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.setVisible(false);
         mi.setVisible(true);

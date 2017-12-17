@@ -13,6 +13,11 @@ public class MenuInicial extends javax.swing.JFrame {
 
     GestorDeConvivios gdc;
     
+    /**
+     * Cria nova instância de MenuInicial
+     * 
+     * @param gdc - objecto de GestorDeConvivios
+     */
     public MenuInicial(GestorDeConvivios gdc) {
         this.gdc = gdc;
         initComponents();
@@ -121,6 +126,10 @@ public class MenuInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Botão que leva para o menu NovaInscricao
+     * @param evt 
+     */
     private void btnNovaInscricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovaInscricaoActionPerformed
         AdicionaInscricao addInscricao = new AdicionaInscricao(this, gdc);
         
@@ -129,6 +138,10 @@ public class MenuInicial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnNovaInscricaoActionPerformed
 
+    /**
+     * Botão que leva para o menu ListaInscricao
+     * @param evt 
+     */
     private void btnListaInscricoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaInscricoesActionPerformed
         ListaInscricoes li =  new ListaInscricoes(this, gdc);
         this.setVisible(false);
@@ -136,15 +149,16 @@ public class MenuInicial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnListaInscricoesActionPerformed
 
+    /**
+     * Botão que leva para o menu ListaInscricoes
+     * @param evt 
+     */
     private void btnListaInscricoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaInscricoes1ActionPerformed
         ListaLocais ll = new ListaLocais(this, gdc);
         this.setVisible(false);
         ll.setVisible(true);
     }//GEN-LAST:event_btnListaInscricoes1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListaInscricoes;

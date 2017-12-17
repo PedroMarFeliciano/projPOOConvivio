@@ -42,8 +42,11 @@ public class Professor extends Pessoa {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
- @Override
+    /**
+     * Retorna o tipo de pessoa
+     * @return String contendo o tipo de pessoa, no caso: Professor
+     */
+    @Override
     public String getTipoPessoa() {
         return "Professor";
     }

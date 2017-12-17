@@ -60,9 +60,9 @@ import java.util.Comparator;
         
     }
     
-         /**
-         * Função que chama as funções de gestão de ficheiros relativos às pessoas
-         */
+    /**
+     * Função que chama as funções de gestão de ficheiros relativos às pessoas
+     */
     private void fichPessoas(){
                 
         criaFichTxtPessoas();
@@ -479,6 +479,10 @@ import java.util.Comparator;
 
     }
     
+    /**
+     * Função para ordenar o ArrayList de locais em ordem decrescente de
+     * inscritos
+     */
     public void serializaLocais() {
         Collections.sort(locaisCoimbra, new Comparator<Local>() {
             @Override
@@ -534,10 +538,18 @@ import java.util.Comparator;
         pessoas.add(pessoa);
     }
 
+    /**
+     * Retorna o ArrayList com os locais do convívio
+     * @return ArrayList de Local com os locais cadastrados
+     */
     public ArrayList<Local> getLocaisCoimbra() {
         return locaisCoimbra;
     }
 
+    /**
+     * Retorna o ArrayList de convívios cadastrados
+     * @return ArrayList de Convivio com os convivios cadastrados
+     */
     public ArrayList<Convivio> getConvivios() {
         return convivios;
     }

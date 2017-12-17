@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author marcomiranda
  */
-public class Pessoa implements Serializable{
+public abstract class Pessoa implements Serializable{
 
     private String nome;
     private String perfil;
@@ -87,17 +87,7 @@ public class Pessoa implements Serializable{
      * 
      * @return devolve o tipo de pessoa: Aluno, funcionario, professor.
      */
-    public String getTipoPessoa() {
-        return "";
-    }
-    
-    /**
-     * 
-     * @return devolve o curso a que pertence o aluno.
-     */
-    public String getCurso() {
-        return "";
-    }
+    public abstract String getTipoPessoa();
     
     /**
      *
@@ -140,6 +130,13 @@ public class Pessoa implements Serializable{
         this.palavraChave = palavraChave;
     }
     
+    /**
+     * Verifica se a pessoa está inscrita em menos do que 5 locais e incrementa
+     * a variável numLocais
+     * 
+     * @return true se estiver inscrita em 4 ou menos locais e false caso
+     * contrário
+     */
     public boolean contaLocais(){
         
         if (this.numLocais < 5){
@@ -149,6 +146,10 @@ public class Pessoa implements Serializable{
         return false;
     }
 
+    /**
+     * Retorna o numero de locais
+     * @return 
+     */
     public int getNumLocais() {
         return numLocais;
     }

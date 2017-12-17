@@ -81,6 +81,12 @@ public class AreaDesportiva extends Parque {
         return modalidades;
     }
 
+    /**
+     * Função que retorna um String já formatada contendo todos os dados desse
+     * tipo de local
+     * 
+     * @return String formada com os dados do local
+     */
     @Override
     public String toString() {
         String str = "Tipo........: área desportiva\n" +

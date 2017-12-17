@@ -58,6 +58,12 @@ public class Jardim extends Parque {
         return area;
     }
 
+    /**
+     * Função que retorna um String já formatada contendo todos os dados desse
+     * tipo de local
+     * 
+     * @return String formada com os dados do local
+     */
     @Override
     public String toString() {
         return "Tipo: parque\n" +
