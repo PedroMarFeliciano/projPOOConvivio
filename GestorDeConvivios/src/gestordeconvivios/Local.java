@@ -93,4 +93,17 @@ public abstract class Local implements Serializable{
     @Override
     public abstract String toString();
     
+    /**
+     * Retorna o tipo de local;
+     */
+    public abstract String getTipoLocal();
+    
+    /**
+     * Retorna o limite da guestlist
+     * 
+     * @return int com o limite da guest list
+     */
+    public int getGuestLimit() {
+        return 0;
+    }
 }

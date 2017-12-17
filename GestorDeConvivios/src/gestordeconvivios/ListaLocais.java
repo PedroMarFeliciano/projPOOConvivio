@@ -5,6 +5,8 @@
  */
 package gestordeconvivios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Pedro Feliciano
@@ -50,6 +52,7 @@ public class ListaLocais extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaMostraLocais = new javax.swing.JTextArea();
         btnVoltar = new javax.swing.JButton();
+        btnGuestLists = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +69,7 @@ public class ListaLocais extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 203, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
@@ -84,27 +87,42 @@ public class ListaLocais extends javax.swing.JFrame {
             }
         });
 
+        btnGuestLists.setText("Visualizar Guestlists");
+        btnGuestLists.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuestListsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(btnVoltar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(btnVoltar)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGap(162, 162, 162)
+                .addComponent(btnGuestLists)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuestLists)
+                .addGap(18, 18, 18)
                 .addComponent(btnVoltar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -119,7 +137,26 @@ public class ListaLocais extends javax.swing.JFrame {
         mi.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
+    private void btnGuestListsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuestListsActionPerformed
+        
+        if (gdc.getConvivios().get(0).getInscricoes().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Não existem inscrições no "
+                + "convívio");
+        } 
+        else {
+        
+            BarGuestList guestList = new BarGuestList(this, gdc);
+        
+            this.setVisible(false);
+            guestList.setVisible(true);
+        
+            }
+        
+    }//GEN-LAST:event_btnGuestListsActionPerformed
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuestLists;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

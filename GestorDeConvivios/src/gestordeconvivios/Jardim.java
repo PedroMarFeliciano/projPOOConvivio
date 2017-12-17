@@ -69,5 +69,14 @@ public class Jardim extends Parque {
         return "Tipo: parque\n" +
                "Área: " + area;
     }
+
+    /**
+     * Retorna o tipo de local
+     * @return AreaDesportiva
+     */
+    @Override
+    public String getTipoLocal() {
+        return "Jardim";
+    }
     
 }

@@ -153,5 +153,14 @@ public abstract class Pessoa implements Serializable{
     public int getNumLocais() {
         return numLocais;
     }
+    
+    /**
+     * Retorna o curso da pessoa
+     * 
+     * @return null
+     */
+    public String getCurso() {
+        return null;
+    }
 }
 

@@ -122,4 +122,25 @@ public class Bar extends Local {
                "Inscritos........: " + inscritos + "\n" +
                "Consumo mínimo...: " + consumoMinimo;
     }
+
+    /**
+     * Retorna o tipo de local
+     * @return AreaDesportiva
+     */
+    @Override
+    public String getTipoLocal() {
+        return "Bar";
+    }
+
+    /**
+     * Retorna o limite da guestlist
+     * 
+     * @return int com o limite da guest list
+     */
+    @Override
+    public int getGuestLimit() {
+        return guestLimit;
+    }
+    
+    
 }

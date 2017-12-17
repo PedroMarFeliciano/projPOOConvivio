@@ -96,5 +96,14 @@ public class AreaDesportiva extends Parque {
         
         return str;
     }
+
+    /**
+     * Retorna o tipo de local
+     * @return AreaDesportiva
+     */
+    @Override
+    public String getTipoLocal() {
+        return "AreaDesportiva";
+    }
     
 }

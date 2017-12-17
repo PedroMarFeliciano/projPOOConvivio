@@ -106,5 +106,14 @@ public class Exposicao extends Local {
                "Custo do ingresso...: " + custoIngresso + "\n" +
                "Estudantes Inscritos: " + quantidadeEstudantes;
     }
+
+    /**
+     * Retorna o tipo de local
+     * @return AreaDesportiva
+     */
+    @Override
+    public String getTipoLocal() {
+        return "Exposicao";
+    }
     
 }

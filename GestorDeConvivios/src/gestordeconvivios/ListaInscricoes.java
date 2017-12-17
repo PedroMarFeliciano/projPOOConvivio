@@ -22,7 +22,7 @@ public class ListaInscricoes extends javax.swing.JFrame {
     public ListaInscricoes(MenuInicial mi, GestorDeConvivios gdc) {
         this.gdc = gdc;
         this.mi = mi;
-        
+      
         initComponents();
         
         comboBoxPessoas.removeAllItems();

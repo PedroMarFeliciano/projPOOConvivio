@@ -297,7 +297,7 @@ import java.util.Comparator;
             //Bares
             pw.println("bar,Quebra-Costas,40.212,12.345,3,5");
             pw.println("bar,Cantinas Amarelas,33.431,5.413,2,15");
-            pw.println("bar,Jardins da AAC,20.111,7,715,4,10");
+            pw.println("bar,Jardins da AAC,20.111,7.715,4,10");
             
             pw.close();
             

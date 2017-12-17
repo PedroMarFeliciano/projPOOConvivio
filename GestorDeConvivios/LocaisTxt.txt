@@ -9,4 +9,4 @@ exp,Museu Machado Castro,24.111,7.408,2.5,Escultura
 exp,TAGV,15.131,6.056,2.75,Fotografia
 bar,Quebra-Costas,40.212,12.345,3,5
 bar,Cantinas Amarelas,33.431,5.413,2,15
-bar,Jardins da AAC,20.111,7,715,4,10
+bar,Jardins da AAC,20.111,7.715,4,10
