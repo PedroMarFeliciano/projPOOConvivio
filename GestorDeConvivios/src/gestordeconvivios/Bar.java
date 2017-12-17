@@ -25,6 +25,7 @@ public class Bar extends Local {
      * @param lotacao capacidade maxima do Bar
      * @param porcentagemGuestList porcentagem da capacidade que sera utilizada
      * para a guest list. Deve estar no formato de porcentagem (i.e. 30%, 20%)
+     * @param consumoMinimo consumo mínimo admitido pelo bar
      */
     public Bar(String nome, float lat, float lng, int lotacao, 
             float porcentagemGuestList, float consumoMinimo) {

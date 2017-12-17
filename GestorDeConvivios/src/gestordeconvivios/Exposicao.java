@@ -54,11 +54,9 @@ public class Exposicao extends Local {
     /**
      * Verifica se o inscrito é estudante
      * 
-     * @param inscr inscrição da pessoa que deseja verificar
+     * @param p pessoa que deseja verificar se é estudante
      * @return true caso seja estudante, false caso não seja
      */
-
- 
     public boolean eEstudante(Pessoa p) {
         return p.getTipoPessoa().equalsIgnoreCase("aluno");
 

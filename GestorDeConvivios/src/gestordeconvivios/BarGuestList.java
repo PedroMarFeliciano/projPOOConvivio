@@ -17,6 +17,8 @@ public class BarGuestList extends javax.swing.JFrame {
 
     /**
      * Creates new form BarGuestList
+     * @param ll    - instância de ListaLocais
+     * @param gdc   - instância de GesstorDeConvivios
      */
     public BarGuestList(ListaLocais ll, GestorDeConvivios gdc) {
         

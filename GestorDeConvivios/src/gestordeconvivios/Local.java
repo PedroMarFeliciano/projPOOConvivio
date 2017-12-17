@@ -95,7 +95,9 @@ public abstract class Local implements Serializable{
     public abstract String toString();
     
     /**
-     * Retorna o tipo de local;
+     * Retorna o tipo de local
+     * 
+     * @return String com o tipo de local
      */
     public abstract String getTipoLocal();
     

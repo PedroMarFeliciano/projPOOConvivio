@@ -39,6 +39,8 @@ public class Convivio {
      * 
      * @param local para o qual a pessoa quer fazer a inscricao
      * @param pessoa que quer fazer a inscricao
+     * @return true se a inscrição for adicionada com sucesso, false caso 
+     * contrário
      */
     public boolean adInscricao(Local local, Pessoa pessoa) {
         boolean cadastrado = false;
