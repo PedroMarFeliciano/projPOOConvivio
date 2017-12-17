@@ -1,12 +1,12 @@
 prof,Paulo Oliveira,poupadinho,DEI,po@dei.uc.pt,qwerty,Auxiliar
 prof,Bacano,boemio,DEI,bacano@dei.uc.pt,asdfg,Associado
-prof,JMSR,cultural,DEM,jmsr@dem.uc.pt,1234,Catedratico
+prof,JMSR,cultural,DEI,jmsr@dem.uc.pt,1234,Catedratico
 prof,Manuel Silva,desportivo,DEI,ms@dei.uc.pt,a1b2c3,Catedratico
-func,Anabela Couto,boemio,DEC,ac@dec.uc.pt,aeiou,Temp integral
+func,Anabela Couto,boemio,DEI,ac@dec.uc.pt,aeiou,Temp integral
 func,Jose Maria,cultural,DEI,jm@dei.uc.pt,SLBGlorioso,Tempo integral
 func,Mafalda Pereira,desportivo,DEI,mp@dei.uc.pt,QWE$%&,Tempo parcial
 func,Carlos Afonso,boemio,DEI,ca@dei.uc.pt,tytyty,Tempo parcial
 al,Anacleto Martins,boemio,DEI,am@dei.uc.pt,tatetitotu,Lic. Engenharia Informatica
 al,Maria Costa,poupadinho,DEI,mc@dei.uc.pt,deec1234,Lic. Engenharia Informatica
-al,Samuel S.,cultural,FL,ss@fl.uc.pt,mmnnbb,Lic. Letras
+al,Samuel S.,cultural,DEI,ss@fl.uc.pt,mmnnbb,Lic. Letras
 al,Duarte Bom,boemio,DEI,db@dei.uc.pt,tintoecerveja,Lic. Design Multimedia

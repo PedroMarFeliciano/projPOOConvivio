@@ -86,13 +86,13 @@ import java.util.Comparator;
                     + "qwerty,Auxiliar");
             pw.println("prof,Bacano,boemio,DEI,bacano@dei.uc.pt,"
                     + "asdfg,Associado");
-            pw.println("prof,JMSR,cultural,DEM,jmsr@dem.uc.pt,1234,"
+            pw.println("prof,JMSR,cultural,DEI,jmsr@dem.uc.pt,1234,"
                     + "Catedratico");
             pw.println("prof,Manuel Silva,desportivo,DEI,ms@dei.uc.pt,"
                     + "a1b2c3,Catedratico");
             
             //Funcionários
-            pw.println("func,Anabela Couto,boemio,DEC,ac@dec.uc.pt,aeiou,"
+            pw.println("func,Anabela Couto,boemio,DEI,ac@dec.uc.pt,aeiou,"
                     + "Temp integral");
             pw.println("func,Jose Maria,cultural,DEI,jm@dei.uc.pt,SLBGlorioso,"
                     + "Tempo integral");
@@ -106,7 +106,7 @@ import java.util.Comparator;
                     + "Lic. Engenharia Informatica");
             pw.println("al,Maria Costa,poupadinho,DEI,mc@dei.uc.pt,deec1234,"
                     + "Lic. Engenharia Informatica");
-            pw.println("al,Samuel S.,cultural,FL,ss@fl.uc.pt,"
+            pw.println("al,Samuel S.,cultural,DEI,ss@fl.uc.pt,"
                     + "mmnnbb,Lic. Letras");
             pw.println("al,Duarte Bom,boemio,DEI,db@dei.uc.pt,"
                     + "tintoecerveja,Lic. Design Multimedia");
